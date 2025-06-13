@@ -1,8 +1,6 @@
 ﻿using IntegratedAppraisalControl.Business;
-using IntegratedAppraisalControl.Data;
 using IntegratedAppraisalControl.Models;
 using IntegratedAppraisalControl.Models.DTO;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
@@ -11,268 +9,167 @@ namespace IntegratedAppraisalControl.Controllers
 {
     public class CommonController : BaseController
     {
-        private readonly ICommonBusiness _CommonBusiness;
+        private readonly ICommonBusiness _commonBusiness;
         private readonly ILocationBusiness _locationBusiness;
-        private readonly IBuildingBusiness _BuildingBusiness;
+        private readonly IBuildingBusiness _buildingBusiness;
 
-        public CommonController(ICommonBusiness business, ILocationBusiness locationBusiness, IBuildingBusiness buildingBusiness)
+        public CommonController(ICommonBusiness commonBusiness, ILocationBusiness locationBusiness, IBuildingBusiness buildingBusiness)
         {
-            _CommonBusiness = business;
+            _commonBusiness = commonBusiness;
             _locationBusiness = locationBusiness;
-            _BuildingBusiness = buildingBusiness;
-        }
-
-        public IActionResult Index()
-        {
-            return View();
+            _buildingBusiness = buildingBusiness;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetClientDetails(string fileNo)
         {
-            var clientDetails = await _CommonBusiness.GetClientDetails(fileNo);
-
-            if (clientDetails == null)
-            {
-                return NotFound(); // Returns 404
-            }
-            return Ok(); // Returns 200
+            var clientDetails = await _commonBusiness.GetClientDetails(fileNo);
+            if (clientDetails == null) return NotFound();
+            return Ok(clientDetails);
         }
 
         [HttpGet]
         public async Task<IActionResult> GetBuildingDetails(int clientId, string buildingCode)
         {
-            var buildingDetails = await _CommonBusiness.GetBuildingDetails(clientId, buildingCode);
-
-            if (buildingDetails == null)
-            {
-                return NotFound(); // Returns 404
-            }
-            return Ok(); // Returns 200
+            var result = await _commonBusiness.GetBuildingDetails(clientId, buildingCode);
+            if (result == null) return NotFound();
+            return Ok(result);
         }
 
         [HttpPost]
         public async Task<JsonResult> AddClient(TblClientsDTO client)
         {
-            bool Status = false;
-            string Message = "Record updated.", Data = "";
-
-            LocationSearchCriteria criteria = new
-            LocationSearchCriteria()
-            {
-                LocationId = 0,
-                ClientID = 0,
-                IsSuperAdmin = BaseSuperAdmin,
-                IsClientAdmin = BaseClientAdmin,
-            };
+            bool status = false;
+            string message = "";
+            string data = "";
 
             try
             {
-                if (!BaseReadOnly)
+                if (BaseReadOnly)
                 {
-                    //client.ClientId = BaseClientId;
-                    client.LastUpdated = System.DateTime.Now.ToString("dd/mm/yyyy");
-                    client.ClientStatusId = Convert.ToInt32(client.Active);
-
-                    if (string.IsNullOrEmpty(client.ClientName))
-                    {
-                        Message = "Please add client name.";
-                    }
-                    else if (string.IsNullOrEmpty(client.Address1))
-                    {
-                        Message = "Please add client address.";
-                    }
-                    else if (string.IsNullOrEmpty(client.City))
-                    {
-                        Message = "Please add client city.";
-                    }
-                    else if (string.IsNullOrEmpty(client.State))
-                    {
-                        Message = "Please add client state.";
-                    }
-                    else if (string.IsNullOrEmpty(client.ZipCode))
-                    {
-                        Message = "Please add client zipcode.";
-                    }
-                    else if (string.IsNullOrEmpty(client.PointOfContact))
-                    {
-                        Message = "Please add point of contact.";
-                    }
-                    else if (string.IsNullOrEmpty(client.Telephone))
-                    {
-                        Message = "Please add telephone number.";
-                    }
-                    else if (string.IsNullOrEmpty(client.ReportYear))
-                    {
-                        Message = "Please add report year.";
-                    }
-                    else if (string.IsNullOrEmpty(client.AccountingYear))
-                    {
-                        Message = "Please add accounting year.";
-                    }
-                    else if (client.AquisitionCostCutOff == 0 || client.AquisitionCostCutOff == null)
-                    {
-                        Message = "Please add aquisition cost cut off.";
-                    }
-                    else if (client.AnnualDepreciationId == 0 || client.AnnualDepreciationId == null)
-                    {
-                        Message = "Please select annual description.";
-                    }
-                    else if (client.FirstYearDepreciationD == 0 || client.FirstYearDepreciationD == null)
-                    {
-                        Message = "Please select first year description.";
-                    }
-                    //else if (client.ClientStatusId == 0 || client.ClientStatusId == null)
-                    //{
-                    //    Message = "Please select client status.";
-                    //}
-                    else if (string.IsNullOrEmpty(client.FileNo))
-                    {
-                        Message = "Please add file no.";
-                    }
-                    else if (string.IsNullOrEmpty(client.AppraisalDate))
-                    {
-                        Message = "Please add appraisal date.";
-                    }
-                    else if (string.IsNullOrEmpty(client.UpdatedTo))
-                    {
-                        Message = "Please add updated date.";
-                    }
-                    else if (client.AccountDataAsOf == null)
-                    {
-                        Message = "Please add account date.";
-                    }
-                    else if (client.Accounting == false && client.Insurance == false && client.Fmv == false)
-                    {
-                        Message = "Please select atleast one from accounting, insurance and fmv.";
-                    }
-                    else if (client.NextRoomNumber == 0 || client.NextRoomNumber == null)
-                    {
-                        Message = "Please add next room number.";
-                    }
-                    else if (client.NextDepartmentNumber == 0 || client.NextDepartmentNumber == null)
-                    {
-                        Message = "Please add next department number.";
-                    }
-                    else
-                    {
-
-                        if (client.ClientId > 0)
-                        {
-                            Message = "Record updated successfully.";
-                        }
-                        else
-                        {
-                            Message = "Record inserted successfully.";
-                        }
-                        client = await _locationBusiness.AddUpdateClients(client);
-                        Status = true;
-                    }
+                    message = "You have readonly permission.";
                 }
                 else
                 {
-                    Status = false;
-                    Message = "You have readonly permission.";
+                    var validationMsg = ValidateClient(client);
+                    if (validationMsg != null)
+                    {
+                        message = validationMsg;
+                    }
+                    else
+                    {
+                        client.LastUpdated = DateTime.Now.ToString("dd/MM/yyyy");
+                        client.ClientStatusId = Convert.ToInt32(client.Active);
+
+                        client = await _locationBusiness.AddUpdateClients(client);
+                        status = true;
+                        message = client.ClientId > 0 ? "Record updated successfully." : "Record inserted successfully.";
+                    }
                 }
-                //}
             }
             catch (Exception ex)
             {
-                Status = false;
-                Message = "There is some issue, Please try again after sometime.";
-                Data = ex.Message;
+                status = false;
+                message = "There is some issue, Please try again later.";
+                data = ex.Message;
             }
 
-            return Json(new
-            {
-                Status = Status,
-                Message = Message,
-                Data = Data
-            });
+            return Json(new { Status = status, Message = message, Data = data });
         }
 
         [HttpPost]
-        //public async Task<JsonResult> AddBuilding(TblBuildingsDTO tblBuildingsDTO)
-        public async Task<JsonResult> AddBuilding(TblBuildingsDTO tblBuildingsDTO)
+        public async Task<JsonResult> AddBuilding(TblBuildingsDTO building)
         {
-            tblBuildingsDTO.BuildingId = 0;
+            bool status = false;
+            string message = "";
+            string data = "";
             int clientId = 16854;
-            bool Status = false;
-            string Message = "Building added successsfully.", Data = "";
+
             try
             {
-                if (BaseReadOnly == false)
+                if (BaseReadOnly)
                 {
-                    if (await _BuildingBusiness.CheckBuildingCodeExistance(new BuildingCodeSearchCriteria { BuildingCode = tblBuildingsDTO.BuildingCode, ClientID = clientId/*BaseClientId*/, IsSuperAdmin = BaseSuperAdmin }))
-                    {
-                        Message = "Duplicate building no, Please add another building number.";
-                    }
-                    else
-                    {
-                        if (string.IsNullOrEmpty(tblBuildingsDTO.BuildingCode))
-                        {
-                            Message = "Please add building number.";
-                        }
-                        else if (string.IsNullOrEmpty(tblBuildingsDTO.BuildingName))
-                        {
-                            Message = "Please add building name.";
-                        }
-                        else if (string.IsNullOrEmpty(tblBuildingsDTO.Address1))
-                        {
-                            Message = "Please add building address.";
-                        }
-                        else if (string.IsNullOrEmpty(tblBuildingsDTO.City))
-                        {
-                            Message = "Please add city.";
-                        }
-                        else if (string.IsNullOrEmpty(tblBuildingsDTO.State))
-                        {
-                            Message = "Please add state.";
-                        }
-                        else if (string.IsNullOrEmpty(tblBuildingsDTO.ZipCode))
-                        {
-                            Message = "Please add zipcode.";
-                        }
-                        else if (string.IsNullOrEmpty(tblBuildingsDTO.YearAcq))
-                        {
-                            Message = "Please add year acquired.";
-                        }
-                        else if (string.IsNullOrEmpty(tblBuildingsDTO.MonthAcq))
-                        {
-                            Message = "Please add month acquired.";
-                        }
-                        else if (string.IsNullOrEmpty(tblBuildingsDTO.Cost))
-                        {
-                            Message = "Please add building cost.";
-                        }
-                        else
-                        {
-                            tblBuildingsDTO.ClientId = clientId/*BaseClientId*/;
-                            tblBuildingsDTO.MarkForDeletion = false;
-                            tblBuildingsDTO.Deleted = false;
-                            tblBuildingsDTO = await _BuildingBusiness.AddUpdateBuilding(tblBuildingsDTO);
-                            Status = true;
-                        }
-                    }
+                    message = "You cannot add this building.";
                 }
                 else
                 {
-                    Message = "You can not add this building";
+                    if (await _buildingBusiness.CheckBuildingCodeExistance(new BuildingCodeSearchCriteria
+                    {
+                        BuildingCode = building.BuildingCode,
+                        ClientID = clientId,
+                        IsSuperAdmin = BaseSuperAdmin
+                    }))
+                    {
+                        message = "Duplicate building no, Please add another building number.";
+                    }
+                    else
+                    {
+                        var validationMsg = ValidateBuilding(building);
+                        if (validationMsg != null)
+                        {
+                            message = validationMsg;
+                        }
+                        else
+                        {
+                            building.ClientId = clientId;
+                            building.BuildingId = 0;
+                            building.MarkForDeletion = false;
+                            building.Deleted = false;
+
+                            building = await _buildingBusiness.AddUpdateBuilding(building);
+                            status = true;
+                            message = "Building added successfully.";
+                        }
+                    }
                 }
             }
             catch (Exception ex)
             {
-                Data = ex.Message;
-                Message = "There is some issue while adding building.";
+                message = "There is some issue while adding building.";
+                data = ex.Message;
             }
 
-            return Json(new
-            {
-                Status = Status,
-                Message = Message,
-                Data = Data
-            });
+            return Json(new { Status = status, Message = message, Data = data });
         }
 
+        private string ValidateClient(TblClientsDTO client)
+        {
+            if (string.IsNullOrWhiteSpace(client.ClientName)) return "Please add client name.";
+            if (string.IsNullOrWhiteSpace(client.Address1)) return "Please add client address.";
+            if (string.IsNullOrWhiteSpace(client.City)) return "Please add client city.";
+            if (string.IsNullOrWhiteSpace(client.State)) return "Please add client state.";
+            if (string.IsNullOrWhiteSpace(client.ZipCode)) return "Please add client zipcode.";
+            if (string.IsNullOrWhiteSpace(client.PointOfContact)) return "Please add point of contact.";
+            if (string.IsNullOrWhiteSpace(client.Telephone)) return "Please add telephone number.";
+            if (string.IsNullOrWhiteSpace(client.ReportYear)) return "Please add report year.";
+            if (string.IsNullOrWhiteSpace(client.AccountingYear)) return "Please add accounting year.";
+            if (client.AquisitionCostCutOff == null || client.AquisitionCostCutOff == 0) return "Please add acquisition cost cut off.";
+            if (client.AnnualDepreciationId == null || client.AnnualDepreciationId == 0) return "Please select annual depreciation.";
+            if (client.FirstYearDepreciationD == null || client.FirstYearDepreciationD == 0) return "Please select first year depreciation.";
+            if (string.IsNullOrWhiteSpace(client.FileNo)) return "Please add file no.";
+            if (string.IsNullOrWhiteSpace(client.AppraisalDate)) return "Please add appraisal date.";
+            if (string.IsNullOrWhiteSpace(client.UpdatedTo)) return "Please add updated date.";
+            if (client.AccountDataAsOf == null) return "Please add account date.";
+            if (!client.Accounting && !client.Insurance && !client.Fmv) return "Please select at least one from accounting, insurance, and FMV.";
+            if (client.NextRoomNumber == null || client.NextRoomNumber == 0) return "Please add next room number.";
+            if (client.NextDepartmentNumber == null || client.NextDepartmentNumber == 0) return "Please add next department number.";
+
+            return null;
+        }
+
+        private string ValidateBuilding(TblBuildingsDTO building)
+        {
+            if (string.IsNullOrWhiteSpace(building.BuildingCode)) return "Please add building number.";
+            if (string.IsNullOrWhiteSpace(building.BuildingName)) return "Please add building name.";
+            if (string.IsNullOrWhiteSpace(building.Address1)) return "Please add building address.";
+            if (string.IsNullOrWhiteSpace(building.City)) return "Please add city.";
+            if (string.IsNullOrWhiteSpace(building.State)) return "Please add state.";
+            if (string.IsNullOrWhiteSpace(building.ZipCode)) return "Please add zipcode.";
+            if (string.IsNullOrWhiteSpace(building.YearAcq)) return "Please add year acquired.";
+            if (string.IsNullOrWhiteSpace(building.MonthAcq)) return "Please add month acquired.";
+            if (string.IsNullOrWhiteSpace(building.Cost)) return "Please add building cost.";
+
+            return null;
+        }
     }
 }
