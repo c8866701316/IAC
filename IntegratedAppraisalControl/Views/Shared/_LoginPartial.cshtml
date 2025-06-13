@@ -1,0 +1,43 @@
+﻿
+@if (User.Identity.IsAuthenticated)
+{
+    <p>
+        <i><img src="~/Content/images/profileImg.jpg" alt="profile image" /></i>
+        <span>@User.Identity.Name </span>
+    </p>
+    <div class="logoutDiv">
+
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+        {
+            @Html.AntiForgeryToken()
+            <ul>
+                <li>
+                    <p>
+                        @if (ViewBag.BaseClientId > 0)
+                        {
+                            <strong>File No:</strong> @ViewBag.BaseFileName<br />
+                            <strong>Client Name:</strong>
+                            <span>@ViewBag.BaseClientName</span><br />
+                        }
+                        <strong>Username:</strong> @User.Identity.Name
+                    </p>
+                </li>
+                @if (ViewBag.BaseIsLocationChangeAllowed == true)
+                {
+                    <li class="setting"><a href="@Url.Action("ClientSelection","Home")">Settings</a></li>
+                }
+
+                <li class="logout">
+                    <a href="javascript:document.getElementById('logoutForm').submit()">Logout</a>
+                </li>
+            </ul>
+        }
+    </div>
+}
+else
+{
+    <ul id="css3menu1" class="topmenu">
+        <li class="topmenu">@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @style = "height:32px;line-height:32px;" })</li>
+        <li class="topmenu">@Html.ActionLink("Log in", "LogOn", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @style = "height:32px;line-height:32px;" })</li>
+    </ul>
+}

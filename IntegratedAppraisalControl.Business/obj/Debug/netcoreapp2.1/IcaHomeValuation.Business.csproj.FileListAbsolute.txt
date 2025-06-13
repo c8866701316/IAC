@@ -1,0 +1,13 @@
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IcaHomeValuation.Business\bin\Debug\netcoreapp2.1\IcaHomeValuation.Data.dll
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IcaHomeValuation.Business\bin\Debug\netcoreapp2.1\IcaHomeValuation.Models.dll
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IcaHomeValuation.Business\bin\Debug\netcoreapp2.1\IcaHomeValuation.Data.pdb
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IcaHomeValuation.Business\obj\Debug\netcoreapp2.1\IcaHomeValuation.Business.csprojResolveAssemblyReference.cache
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IcaHomeValuation.Business\obj\Debug\netcoreapp2.1\IcaHomeValuation.Business.csproj.CoreCompileInputs.cache
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IcaHomeValuation.Business\obj\Debug\netcoreapp2.1\IcaHomeValuation.Business.AssemblyInfoInputs.cache
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IcaHomeValuation.Business\obj\Debug\netcoreapp2.1\IcaHomeValuation.Business.AssemblyInfo.cs
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IcaHomeValuation.Business\bin\Debug\netcoreapp2.1\IcaHomeValuation.Business.deps.json
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IcaHomeValuation.Business\bin\Debug\netcoreapp2.1\IcaHomeValuation.Business.dll
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IcaHomeValuation.Business\bin\Debug\netcoreapp2.1\IcaHomeValuation.Business.pdb
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IcaHomeValuation.Business\bin\Debug\netcoreapp2.1\IcaHomeValuation.Models.pdb
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IcaHomeValuation.Business\obj\Debug\netcoreapp2.1\IcaHomeValuation.Business.dll
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IcaHomeValuation.Business\obj\Debug\netcoreapp2.1\IcaHomeValuation.Business.pdb

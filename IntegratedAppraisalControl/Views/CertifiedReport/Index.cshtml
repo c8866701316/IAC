@@ -1,0 +1,162 @@
+﻿@*@model IntegratedAppraisalControl.Models.DTO.*@
+@{
+    ViewBag.Title = "IAC Report";
+}
+
+<div class="panel-group main" id="accordion">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                @ViewBag.Title
+            </h4>
+        </div>
+        <div id="buildingsections" class="panel-collapse collapse in">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive" style="overflow-x:scroll">
+                            <table class="table" id="tblCertifiedReport">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Description
+                                        </th>
+                                        <th>
+                                            Type
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+
+        function LoadTaleData() {
+                $.ajax({
+                    url: '@Url.Action("CertifiedReportList", "CertifiedReport")',
+                    type: 'GET',
+                    dataType: "json",
+                    success: function (response) {
+
+                        if (response.data.length > 0)
+                        {
+                            var table = $('#tblCertifiedReport').DataTable({
+                                    data: response.data,
+                                     columns: [
+                                         { data: "Description" },
+                                         { data: "Type" }
+                                        ],
+                                    destroy: true,
+                                    "aLengthMenu": [
+                                        [5, 10, 15, 20, -1],
+                                        [5, 10, 15, 20, "All"]
+                                ],
+                                //dom: 'Bfrtip',
+                                //buttons: [
+                                //    {
+                                //        extend: 'csvHtml5',
+                                //        title: 'User csv',
+                                //        className:'btn btn-primary',
+                                //        exportOptions: {
+                                //            columns: [0, 1, 2, 3]
+                                //        }
+                                //    },
+                                //    {
+                                //        extend: 'excelHtml5',
+                                //        title: 'User excel',
+                                //        className: 'btn btn-primary',
+                                //        exportOptions: {
+                                //             columns: [0, 1, 2, 3]
+                                //        }
+                                //    }
+                                //],
+                                "columnDefs": [
+
+                                     {
+                                         "mRender": function (data, type, row)
+                                         {
+                                             var html = '<a href="javascript:void(0)" data-path="' + data + '" class="downloadFile">' + row.Type.substring(row.Type.lastIndexOf('.') + 1)+'</a>';
+                                             return html;
+                                         },
+                                        "targets": 1
+                                     },
+                                ],
+                                "bPaginate": false,
+                                 "iDisplayLength": @ViewBag.BasePageSize,
+                                 "language": {
+                                     "emptyTable": "No data available in table"
+                                },
+                                "drawCallback": function (settings) {
+                                     var api = this.api();
+                                    $("#tblCertifiedReport tbody tr").dblclick(function () {
+                                         var fileName = table.row(this).data().Type;
+                                        var link = document.createElement("a");
+                                        if (link.download !== undefined)
+                                        { // feature detection
+                                            link.setAttribute("href", '../Docs/' + table.row(this).data().Type);
+                                            link.setAttribute("download", fileName);
+                                            document.body.appendChild(link);
+                                            link.click();
+                                            document.body.removeChild(link);
+                                        }
+                                        else {
+                                            alert('CSV export only works in Chrome, Firefox, and Opera.');
+                                        }
+                                 });
+                                }
+                            })
+                            $('#tblCertifiedReport tbody tr').dblclick(function () {
+                                //$('<a href="../Docs/' + table.row(this).data().Type + '" download target="blank"></a>')[0].click();
+                                var fileName = table.row(this).data().Type;
+                                var link = document.createElement("a");
+                                if (link.download !== undefined) { // feature detection
+                                    link.setAttribute("href", '../Docs/' + table.row(this).data().Type);
+                                    link.setAttribute("download", fileName);
+                                    document.body.appendChild(link);
+                                    link.click();
+                                    document.body.removeChild(link);
+                                } else {
+                                    alert('CSV export only works in Chrome, Firefox, and Opera.');
+                                }
+                            });
+
+
+                        }
+                    },
+                    error: function (req, status, error) {
+                        alert('There is some issue with server. Please try again later.');
+                    }
+            });
+        }
+
+
+
+        $(document).ready(function () {
+            LoadTaleData();
+
+            $(document).on('dblclick', '.downloadFile', function ()
+            {
+                console.log('0');
+                var link = '<a id="dwmldfl" href="../Docs/' + $(this).data('path') + '" download target="blank"></a>';
+                console.log(link);
+                $('#downloadFiledom').append(link);
+                console.log('1');
+                $('#dwmldfl').click();
+                console.log('2');
+                $('#downloadFiledom').html('');
+                console.log('3');
+
+            });
+
+        });
+
+    </script>
+}

@@ -1,0 +1,211 @@
+﻿@model IntegratedAppraisalControl.Models.DTO.TblUsersDTO
+@{
+
+}
+<div class="panel-group main">
+    <div class="panel panel-primary">
+        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#userPanel">
+            <h4 class="panel-title">
+                Add/Update Users
+            </h4>
+        </div>
+        <div class="panel-collapse collapse in" id="userPanel">
+            @using (Html.BeginForm("Add", "Users", FormMethod.Post, new { @class = "form-horizontal", @id = "frmUsers" }))
+            {
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">User Name:</label>
+                                <div class="col-lg-6">
+                                    @if (Model.UserId == 0)
+                                    {
+                                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control required required2", @maxlength = "30", @minlength = "3", @placeholder = "User Name" })
+                                    }
+                                    else
+                                    {
+                                        <label class="control-label">@Model.UserName</label>
+                                        @Html.HiddenFor(m => m.UserName)
+                                    }
+                                    @Html.HiddenFor(m => m.UserId)
+                                    @Html.HiddenFor(m => m.MarkForDeletion)
+                                    @Html.HiddenFor(m => m.ClientId)
+                                    @Html.HiddenFor(m => m.ClientAdmin)
+                                    @Html.HiddenFor(m => m.SuperAdmin)
+                                    @Html.HiddenFor(m => m.ReadOnly)
+                                    @Html.Hidden("IsDuplicate", false)
+                                </div>
+                            </div>
+                        </div>
+                        @if (Model.UserId == 0)
+                        {
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">Password:</label>
+                                    <div class="col-lg-6">
+                                        @Html.PasswordFor(m => m.Password, new { @class = "form-control required required2", @maxlength = "30", @placeholder = "Password" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">Password Confirm:</label>
+                                    <div class="col-lg-6">
+                                        @Html.Password("ConfirmPassword", "", new { @class = "form-control required required2", @maxlength = "30", @equalTo = "#Password", @placeholder = "Password Confirm" })
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="col-md-offset-2 col-md-12">
+                                <span class="label-warning">Please add password if you want to change password.</span>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">Password:</label>
+                                    <div class="col-lg-6">
+                                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @maxlength = "30", @placeholder = "Password" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">Password Confirm:</label>
+                                    <div class="col-lg-6">
+                                        @Html.Password("ConfirmPassword", "", new { @class = "form-control", @maxlength = "30", @equalTo = "#Password", @placeholder = "Password Confirm" })
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        }
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">First Name:</label>
+                                <div class="col-lg-6">
+                                    @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control  required required2", @maxlength = "50", @placeholder = "First Name" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">Last Name:</label>
+                                <div class="col-lg-6">
+                                    @Html.TextBoxFor(m => m.LastName, new { @class = "form-control  required required2", @maxlength = "50", @placeholder = "Last Name" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">Access:</label>
+                                <div class="col-lg-6">
+                                    <label class="checkbox-container">
+                                        ReadOnly
+                                        <input type="radio" name="optrole" class="clsRole  required required2" value="ReadOnly">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="checkbox-container">
+                                        ClientAdmin
+                                        <input type="radio" name="optrole" class="clsRole  required required2" value="ClientAdmin">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    @if (ViewBag.BaseSuperAdmin)
+                                    {
+                                        <label class="checkbox-container">
+                                            SuperAdmin
+                                            <input type="radio" name="optrole" class="clsRole" value="SuperAdmin">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div class="modal-footer">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="button" id="btnSave" class="btn btn-primary" value="Save / Exit" />
+                            @if (Model.ClientId > 0)
+                            {
+                                <input type="button" id="btnSaveDup" class="btn btn-primary" value="Save / Dup" />
+                                <input type="button" id="btnUndo" class="btn btn-primary" value="Undo" data-userid="@Model.ClientId" />
+                                if (Convert.ToBoolean(Model.MarkForDeletion))
+                                {
+                                    <input type="button" id="btnUndoDelete" class="btn btn-primary" value="Undo Delete" />
+                                }
+                                else
+                                {
+                                    <input type="button" id="btnDelete" class="btn btn-primary" value="Delete" />
+                                }
+                            }
+                            <input type="button" id="btnExit" class="btn btn-primary" value="Exit" />
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+
+    @if (Model.UserId > 0)
+    {
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    List of clients
+                </h4>
+            </div>
+            <div id="buildingsections" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="table-responsive" style="overflow-x:scroll">
+                                <table class="table" id="tblClients">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Client Code
+                                            </th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @{
+                                            foreach (var item in ViewBag.ClientUserList)
+                                            {
+                                                <tr>
+                                                    <td>@item.ClientName</td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-danger clsDeleteUsersClients" data-usersclientid="@item.UsersClientId" data-userid="@Model.UserId">Delete</button>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        }
+                                    </tbody>
+                                    @if (!(ViewBag.BaseReadOnly))
+                                    {
+                                        <tfoot>
+                                            <tr>
+                                                <th>
+                                                    @Html.DropDownList("UsersClientsClientId", new SelectList(ViewBag.ListClientDDL, "ClientId", "ClientName"), "", new { placeholder = "Client Selection", @class = "form-control " })
+                                                </th>
+                                                <th>
+                                                    <button class="btn btn-sm btn-success clsAddUserClient" data-userid="@Model.UserId">Add</button>
+                                                </th>
+                                            </tr>
+                                        </tfoot>
+                                    }
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+
+</div>

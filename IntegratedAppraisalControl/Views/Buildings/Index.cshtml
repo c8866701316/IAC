@@ -1,0 +1,314 @@
+﻿@model IntegratedAppraisalControl.Models.DTO.TblBuildingsDTO
+@{
+    ViewBag.Title = "Building Search";
+}
+<div class="panel-group main" id="accordion">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            @if (!(ViewBag.BaseReadOnly))
+            {
+                <div class="btn-group pull-right">
+                    <a href="#" data-toggle="modal" data-target="#modalAddBuilding" class="btn btn-default btn-sm">&nbsp; Add</a>
+                </div>
+            }
+
+            <h4 data-toggle="collapse" data-parent="#accordion" href="#buildingmain">
+                Building Search
+            </h4>
+        </div>
+        <div id="buildingmain" class="panel-collapse collapse in">
+
+            <div class="panel-body">
+                @*<div class="row">
+                        <div class="col-md-12 form-group">
+                            <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#modalAddBuilding">Add</button>
+                        </div>
+                    </div>*@
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table id="tblBuildingList">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.BuildingCode)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.BuildingName)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Address1)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.City)
+                                        </th>
+                                        <th>
+
+                                        </th>
+                                    </tr>
+                                </thead>
+                                @*<thead class="filters">
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayNameFor(model => model.BuildingCode)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayNameFor(model => model.BuildingName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayNameFor(model => model.Address1)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayNameFor(model => model.City)
+                                            </td>
+                                            <td></td>
+
+                                        </tr>
+                                    </thead>*@
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modalAddBuilding" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title">
+                    Add Building
+                </h4>
+            </div>
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <form class="" action="@Url.Action("Add","Buildings")" id="frnAddBuilding">
+                    <div class="form-group">
+                        <label for="txtBldngNo">Bldg No.</label>
+                        <input class="form-control required required2" maxlength="4" id="txtBldngNo" name="txtBldngNo" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="txtName">Name</label>
+                        <input class="form-control required required2" maxlength="75" name="txtName" id="txtName" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="txtAddress1">Address1</label>
+                        <input class="form-control required required2" maxlength="75" id="txtAddress1" name="txtAddress1" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="txtAddress2">Address2</label>
+                        <input class="form-control" maxlength="75" id="txtAddress2" name="txtAddress2" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="txtCity">City</label>
+                        <input class="form-control required required2" maxlength="75" id="txtCity" name="txtCity"  type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="txtState">State</label>
+                        <input class="form-control required required2" maxlength="4" id="txtState" name="txtState" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="txtZipCode">Zip Code</label>
+                        <input class="form-control required required2" maxlength="10" id="txtZipCode" name="txtZipCode" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="txtYearAcquired">Year Acquired</label>
+                        <input class="form-control required required2" maxlength="4" minlength="4" max="2099" name="txtYearAcquired" number="true" id="txtYearAcquired" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="txtMonthAcquired">Month Acquired</label>
+                        <input class="form-control required required2" maxlength="2" max="12" number="true" id="txtMonthAcquired" name="txtMonthAcquired"  type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="txtCost">Cost</label>
+                        <input class="form-control required required2" maxlength="10" number="true" id="txtCost" name="txtCost" type="text">
+                    </div>
+
+                    <div class="form-group">
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" id="btnAddBuilding">
+                                Save
+                            </button>
+                            <button type="button" class="btn btn-default"
+                                    data-dismiss="modal">
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- Modal Footer -->
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+<script type="text/javascript">
+
+        function LoadBuildingList() {
+            $.ajax({
+                url: '@Url.Action("BuildingList", "Buildings")',
+                type: 'GET',
+                dataType: "json",
+                success: function (response) {
+
+                    if (response.data.length > 0)
+                    {
+
+                        //$('#tblBuildingList .filters td').each(function () {
+                        //    var title = $('#tblBuildingList thead th').eq($(this).index()).text().trim();
+                        //    if (title != "") {
+                        //        $(this).html('<input type="text" class="cust-input-sm" placeholder="Search ' + title.trim() + '" />');
+                        //    }
+                        //});
+
+                         var table = $('#tblBuildingList').DataTable({
+                                data: response.data,
+                                 columns: [
+                                     { data: "BuildingCode" },
+                                     { data:"BuildingName"},
+                                     { data: "Address1" },
+                                     { data: "City" },
+                                     { data: "BuildingId" }
+                                    ],
+                                destroy: true,
+                                "aLengthMenu": [
+                                    [5, 10, 15, 20, -1],
+                                    [5, 10, 15, 20, "All"]
+                             ],
+                             dom: 'Bfrtip',
+                             buttons: [
+                                 {
+                                     extend: 'csvHtml5',
+                                     title: 'Buildings csv',
+                                     className: 'btn btn-primary',
+                                     exportOptions: {
+                                         columns: [0, 1, 2, 3]
+                                     }
+                                 },
+                                 {
+                                     extend: 'excelHtml5',
+                                     title: 'Buildings excel',
+                                     className: 'btn btn-primary',
+                                     exportOptions: {
+                                         columns: [0, 1, 2, 3]
+                                     }
+                                 }
+                             ],
+                             "iDisplayLength": @ViewBag.BasePageSize,
+                             "columnDefs": [
+                                 {
+                                     "mRender": function (data, type, row)
+                                     {
+                                         var html = '<a href="@Url.Action("Building", "Buildings")?Id=' + data + '">Edit</a>';
+                                         return html;
+                                     },
+                                     "targets": 4,
+                                     "visible":false
+                                 },
+                             ],
+                             "drawCallback": function (settings) {
+                                 var api = this.api();
+                                 $("#tblBuildingList tbody tr").dblclick(function () {
+                                     window.location.href = '@Url.Action("Building", "Buildings")' + '?Id=' + table.row(this).data().BuildingId;
+                                 });
+                             }
+                        })
+
+                        @*$('#tblBuildingList tbody tr').dblclick(function () {
+                            window.location.href = '@Url.Action("Building", "Buildings")' + '?Id=' + table.row(this).data().BuildingId;
+                        });*@
+                            // .columns().eq(0).each(function (colIdx) {
+                            // $('input', $('.filters td')[colIdx]).on('keyup change', function () {
+                            //     table
+                            //         .column(colIdx)
+                            //         .search(this.value)
+                            //         .draw();
+                            // });
+                            //});
+
+                    }
+                },
+                error: function (req, status, error) {
+                    alert('There is some issue with server. Please try again later.');
+                }
+        });
+    }
+
+    function clearFormData() {
+        $('#txtBldngNo').val('');
+        $('#txtName').val('');
+        $('#txtAddress1').val('');
+        $('#txtAddress2').val('');
+        $('#txtCity').val('');
+        $('#txtState').val('');
+        $('#txtZipCode').val('');
+        $('#txtYearAcquired').val('');
+        $('#txtMonthAcquired').val('');
+        $('#txtCost').val('');
+    }
+
+
+
+        $('#btnAddBuilding').click(function ()
+        {
+            var form = $('#frnAddBuilding');
+
+            if (!form.valid()) {
+                return;
+            }
+
+            var url = form.attr('action');
+
+            var data = {
+                BuildingCode: $('#txtBldngNo').val(),
+                BuildingName: $('#txtName').val(),
+                Address1: $('#txtAddress1').val(),
+                Address2: $('#txtAddress2').val(),
+                City: $('#txtCity').val(),
+                State: $('#txtState').val(),
+                ZipCode: $('#txtZipCode').val(),
+                YearAcq: $('#txtYearAcquired').val(),
+                MonthAcq: $('#txtMonthAcquired').val(),
+                Cost: $('#txtCost').val()
+            }
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: data, // serializes the form's elements.
+                dataType: "json",
+                success: function (responseData) {
+                    alert(responseData.Message);
+                    if (responseData.Status) {
+                        LoadBuildingList();
+                        clearFormData();
+                        $('#modalAddBuilding').modal('hide');
+                    }
+                },
+                error: function () {
+                    alert('There is some issue please try again after some time.')
+                }
+            });
+
+        });
+
+        $(document).ready(function () {
+            fnFormvalidate("frnAddBuilding");
+            LoadBuildingList();
+        });
+</script>
+}

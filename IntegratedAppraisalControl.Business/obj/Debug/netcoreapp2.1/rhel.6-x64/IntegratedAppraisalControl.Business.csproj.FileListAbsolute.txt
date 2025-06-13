@@ -1,0 +1,14 @@
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Debug\netcoreapp2.1\rhel.6-x64\IntegratedAppraisalControl.Business.deps.json
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Debug\netcoreapp2.1\rhel.6-x64\IntegratedAppraisalControl.Business.dll
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Debug\netcoreapp2.1\rhel.6-x64\IntegratedAppraisalControl.Business.pdb
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Debug\netcoreapp2.1\rhel.6-x64\IntegratedAppraisalControl.Data.dll
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Debug\netcoreapp2.1\rhel.6-x64\IntegratedAppraisalControl.Models.dll
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Debug\netcoreapp2.1\rhel.6-x64\IntegratedAppraisalControl.Data.pdb
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Debug\netcoreapp2.1\rhel.6-x64\IntegratedAppraisalControl.Models.pdb
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Debug\netcoreapp2.1\rhel.6-x64\IntegratedAppraisalControl.Business.csprojAssemblyReference.cache
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Debug\netcoreapp2.1\rhel.6-x64\IntegratedAppraisalControl.Business.csproj.CoreCompileInputs.cache
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Debug\netcoreapp2.1\rhel.6-x64\IntegratedAppraisalControl.Business.AssemblyInfoInputs.cache
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Debug\netcoreapp2.1\rhel.6-x64\IntegratedAppraisalControl.Business.AssemblyInfo.cs
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Debug\netcoreapp2.1\rhel.6-x64\IntegratedAppraisalControl.Business.csproj.CopyComplete
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Debug\netcoreapp2.1\rhel.6-x64\IntegratedAppraisalControl.Business.dll
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Debug\netcoreapp2.1\rhel.6-x64\IntegratedAppraisalControl.Business.pdb

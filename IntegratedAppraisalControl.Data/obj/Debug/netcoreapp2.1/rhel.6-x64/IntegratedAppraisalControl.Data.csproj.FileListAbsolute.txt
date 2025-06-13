@@ -1,0 +1,12 @@
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Data\bin\Debug\netcoreapp2.1\rhel.6-x64\IntegratedAppraisalControl.Data.deps.json
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Data\bin\Debug\netcoreapp2.1\rhel.6-x64\IntegratedAppraisalControl.Data.dll
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Data\bin\Debug\netcoreapp2.1\rhel.6-x64\IntegratedAppraisalControl.Data.pdb
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Data\bin\Debug\netcoreapp2.1\rhel.6-x64\IntegratedAppraisalControl.Models.dll
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Data\bin\Debug\netcoreapp2.1\rhel.6-x64\IntegratedAppraisalControl.Models.pdb
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Data\obj\Debug\netcoreapp2.1\rhel.6-x64\IntegratedAppraisalControl.Data.csprojAssemblyReference.cache
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Data\obj\Debug\netcoreapp2.1\rhel.6-x64\IntegratedAppraisalControl.Data.csproj.CoreCompileInputs.cache
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Data\obj\Debug\netcoreapp2.1\rhel.6-x64\IntegratedAppraisalControl.Data.AssemblyInfoInputs.cache
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Data\obj\Debug\netcoreapp2.1\rhel.6-x64\IntegratedAppraisalControl.Data.AssemblyInfo.cs
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Data\obj\Debug\netcoreapp2.1\rhel.6-x64\IntegratedAppraisalControl.Data.csproj.CopyComplete
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Data\obj\Debug\netcoreapp2.1\rhel.6-x64\IntegratedAppraisalControl.Data.dll
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Data\obj\Debug\netcoreapp2.1\rhel.6-x64\IntegratedAppraisalControl.Data.pdb

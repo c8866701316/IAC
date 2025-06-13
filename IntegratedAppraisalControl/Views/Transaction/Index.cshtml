@@ -1,0 +1,222 @@
+﻿@{
+    ViewBag.Title = "Transaction Report";
+}
+<div class="panel-group main" id="accordion">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h4 data-toggle="collapse" data-parent="#accordion" href="#panelBuildingTransaction">
+                Inventory Transactions
+            </h4>
+        </div>
+        <div id="panelBuildingTransaction" class="panel-collapse collapse in">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table id="tblBuildingTransaction">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Type
+                                        </th>
+                                        <th>
+                                            Tag/ID
+                                        </th>
+                                        <th>
+                                            Building No
+                                        </th>
+                                        <th>
+                                            Description
+                                        </th>
+                                        <th>
+                                            Field
+                                        </th>
+                                        <th>
+                                            Original
+                                        </th>
+                                        <th>
+                                            Revised
+                                        </th>
+                                        <th>
+                                            Change Date
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h4 data-toggle="collapse" data-parent="#accordion" href="#panelInventoryTransactions">
+
+                Building Transaction
+            </h4>
+        </div>
+        <div id="panelInventoryTransactions" class="panel-collapse collapse in">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table id="tblInventoryTransactions">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Transaction Type
+                                        </th>
+                                        <th>
+                                            Tag/ID
+                                        </th>
+                                        <th>
+                                            Building No
+                                        </th>
+                                        <th>
+                                            Floor
+                                        </th>
+                                        <th>
+                                            Room
+                                        </th>
+                                        <th>
+                                            Department
+                                        </th>
+                                        <th>
+                                            Description
+                                        </th>
+                                        <th>
+                                            Field
+                                        </th>
+                                        <th>
+                                            Original
+                                        </th>
+                                        <th>
+                                            Revised
+                                        </th>
+                                        <th>
+                                            Change Date
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+
+@section Scripts{
+    <script type="text/javascript">
+
+        function LoadInventoryTransactionsList() {
+            $.ajax({
+                url: '@Url.Action("GetInventoryTransaction", "Inventory")',
+                type: 'GET',
+                dataType: "json",
+                success: function (response) {
+                    console.log(response);
+                    var tableInventoryTransactions = $('#tblInventoryTransactions').DataTable({
+                        data: response.Data,
+                        columns: [
+                            { data: "TransactionType" },
+                            { data: "EntryNumber" },
+                            { data: "Building" },
+                            { data: "Flr" },
+                            { data: "Room" },
+                            { data: "Department" },
+                            { data: "EntryDescription" },
+                            { data: "FieldName" },
+                            { data: "EntryOldValue" },
+                            { data: "EntryNewValue" },
+                            { data: "EntryChangeDate" }
+                        ],
+                        destroy: true,
+                        dom: 'Bfrtip',
+                        "bInfo": false,
+                        "language": {
+                            "emptyTable": "No data available in table"
+                        },
+                        buttons: [
+                            {
+                                extend: 'csvHtml5',
+                                title: 'Buildings csv',
+                                className: 'btn btn-primary'
+                            },
+                            {
+                                extend: 'excelHtml5',
+                                title: 'Buildings excel',
+                                className: 'btn btn-primary'
+                            }
+                        ],
+                        "iDisplayLength": @ViewBag.BasePageSize
+                    });
+                },
+                error: function (req, status, error) {
+                    alert('There is some issue with server. Please try again later.');
+                }
+            });
+        }
+
+        function LoadBuildingTransactionsList() {
+            $.ajax({
+                url: '@Url.Action("GetBuildingTransaction", "Buildings")',
+                type: 'GET',
+                dataType: "json",
+                success: function (response) {
+
+                    var tableAssets = $('#tblBuildingTransaction').DataTable({
+                        data: response.Data,
+                        columns: [
+                            { data: "TransactionType" },
+                            { data: "EntryNumber" },
+                            { data: "Building" },
+                            { data: "EntryDescription" },
+                            { data: "FieldName" },
+                            { data: "EntryOldValue" },
+                            { data: "EntryNewValue" },
+                            { data: "EntryChangeDate" }
+                        ],
+                        destroy: true,
+                        dom: 'Bfrtip',
+                        "bInfo": false,
+                        "language": {
+                            "emptyTable": "No data available in table"
+                        },
+                        buttons: [
+                            {
+                                extend: 'csvHtml5',
+                                title: 'Buildings csv',
+                                className: 'btn btn-primary'
+                            },
+                            {
+                                extend: 'excelHtml5',
+                                title: 'Buildings excel',
+                                className: 'btn btn-primary'
+                            }
+                        ],
+                        "iDisplayLength": @ViewBag.BasePageSize
+                    });
+                },
+                error: function (req, status, error) {
+                    alert('There is some issue with server. Please try again later.');
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            LoadBuildingTransactionsList();
+            LoadInventoryTransactionsList();
+        });
+    </script>
+}

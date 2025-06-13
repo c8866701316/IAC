@@ -1,0 +1,9 @@
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Models\bin\Debug\netcoreapp2.1\rhel.6-x64\IntegratedAppraisalControl.Models.deps.json
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Models\bin\Debug\netcoreapp2.1\rhel.6-x64\IntegratedAppraisalControl.Models.dll
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Models\bin\Debug\netcoreapp2.1\rhel.6-x64\IntegratedAppraisalControl.Models.pdb
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Models\obj\Debug\netcoreapp2.1\rhel.6-x64\IntegratedAppraisalControl.Models.csprojAssemblyReference.cache
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Models\obj\Debug\netcoreapp2.1\rhel.6-x64\IntegratedAppraisalControl.Models.csproj.CoreCompileInputs.cache
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Models\obj\Debug\netcoreapp2.1\rhel.6-x64\IntegratedAppraisalControl.Models.AssemblyInfoInputs.cache
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Models\obj\Debug\netcoreapp2.1\rhel.6-x64\IntegratedAppraisalControl.Models.AssemblyInfo.cs
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Models\obj\Debug\netcoreapp2.1\rhel.6-x64\IntegratedAppraisalControl.Models.dll
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Models\obj\Debug\netcoreapp2.1\rhel.6-x64\IntegratedAppraisalControl.Models.pdb

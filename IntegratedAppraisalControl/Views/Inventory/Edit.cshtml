@@ -1,0 +1,726 @@
+﻿@model IntegratedAppraisalControl.Models.InventoryViewModel
+@{
+    ViewBag.Title = "Inventory Edit";
+}
+<div class="panel-group main" id="accordion">
+    <div class="panel panel-primary">
+        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#buildingmain">
+            <h4 class="panel-title">
+                @ViewBag.Title
+            </h4>
+        </div>
+        <div id="buildingmain" class="panel-collapse collapse in">
+            @using (Html.BeginForm("Edit", "Inventory", FormMethod.Post, new { @class = "form-horizontal", @id = "frmInventory" }))
+            {
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="form-group col-md-12">
+                                <label class="col-lg-3 control-label">Tag Number:</label>
+                                <div class="col-lg-4">
+                                    @Html.TextBoxFor(m => m.Inventory.Tag, new { @class = "form-control", @maxlength = "4", @placeholder = "Tag Number" })
+                                    @Html.HiddenFor(m => m.Inventory.InventoryId)
+                                    @Html.HiddenFor(m => m.Inventory.MarkForDeletion)
+                                    @Html.HiddenFor(m => m.IsDuplicate)
+                                </div>
+                                <label class="col-lg-2 control-label">System #:</label>
+                                <label class="col-lg-2 control-label">@Model.Inventory.SystemNumber</label>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label class="col-lg-3 control-label">Building*:</label>
+                                <div class="col-lg-9">
+                                    @Html.DropDownListFor(m => m.Inventory.BuildingId, new SelectList(Model.listBuildings, "BuildingId", "BuildingCode"), "", new { placeholder = "Building", @class = "select2 required required2 form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label class="col-lg-3 control-label">Room:</label>
+                                <div class="col-lg-9">
+                                    @Html.DropDownListFor(m => m.Inventory.RoomId, new SelectList(Model.lstRooms, "RoomId", "RoomDescription"), "", new { placeholder = "Room", @class = "select2 form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label class="col-lg-3 control-label">Department:</label>
+                                <div class="col-lg-9">
+                                    @Html.DropDownListFor(m => m.Inventory.DeptId, new SelectList(Model.lstDepartments, "DepartmentId", "DepartmentName"), "", new { placeholder = "Department", @class = "select2 form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label class="col-lg-3 control-label">Asset Class:</label>
+                                <div class="col-lg-9">
+                                    @Html.DropDownListFor(m => m.Inventory.AssetClassId, new SelectList(Model.lstAssetClass, "AssetClassId", "AssetClassName"), "", new { placeholder = "Asset Class", @class = "select2 required required2 form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label class="col-lg-3 control-label">Quantity:</label>
+                                <div class="col-lg-3">
+                                    @Html.TextBoxFor(m => m.Inventory.Qty, new { @class = "form-control required required2", @type="number", @placeholder = "Quantity" })
+                                </div>
+                                <label class="col-lg-3 control-label">Floor:</label>
+                                <div class="col-lg-3">
+                                    @Html.TextBoxFor(m => m.Inventory.Floor, new { @class = "form-control", @placeholder = "Floor" })
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                <label class="col-lg-3 control-label">Description:</label>
+                                <div class="col-lg-9">
+                                    @Html.TextAreaFor(m => m.Inventory.Descr, new { @class = "form-control required required2", @maxlength = "500", @placeholder = "Description" })
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                <label class="col-lg-3 control-label">Repl Value:</label>
+                                <div class="col-lg-9">
+                                    @Html.TextBoxFor(m => m.Inventory.Crn, new { @class = "form-control required required2", @maxlength = "10", @type="number", @placeholder = "Repl Value" })
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                <label class="col-lg-3 control-label">Sound Value:</label>
+                                <div class="col-lg-9">
+                                    @Html.TextBoxFor(m => m.Inventory.SoundValue, new { @class = "form-control required required2", @maxlength = "10", @type="number", @placeholder = "Sound Value" })
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                <label class="col-lg-3 control-label">Acquisition Cost:</label>
+                                <div class="col-lg-9">
+                                    @Html.TextBoxFor(m => m.Inventory.Cost, new { @class = "form-control required required2", @maxlength = "10", @type="number", @placeholder = "Acquisition Cost" })
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                <label class="col-lg-3 control-label">Salvage Value:</label>
+                                <div class="col-lg-9">
+                                    @Html.TextBoxFor(m => m.Inventory.SalvageValue, new { @class = "form-control required required2", @maxlength = "10", @type="number", @placeholder = "Salvage Value" })
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                <label class="col-lg-3 control-label">Date Acquired:</label>
+                                <div class="col-lg-4">
+                                    @Html.TextBoxFor(m => m.Inventory.Month, new { @class = "form-control", @max = "12", @min = "1", @digit = true, @type = "number", @placeholder = "Month" })
+                                </div>
+                                <div class="col-lg-5">
+                                    @Html.TextBoxFor(m => m.Inventory.Year, new { @class = "form-control", @max = "2099", @min = "1900", @digit = true, @type = "number", @placeholder = "Year" })
+                                </div>
+
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                <lable class="col-lg-3 control-label">Life</lable>
+                                <div class="col-lg-4">
+                                    @Html.TextBoxFor(m => m.Inventory.Life, new { @class = "form-control", @maxlength = "2", @type = "number", @placeholder = "Life" })
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-5">
+                            <div class="form-group col-md-12">
+                                <label class="col-lg-3 control-label">Serial:</label>
+                                <div class="col-lg-9">
+                                    @Html.TextBoxFor(m => m.Inventory.SerNo, new { @class = "form-control", @maxlength = "50", @placeholder = "Serial" })
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label class="col-lg-3 control-label">Manufacturer:</label>
+                                <div class="col-lg-3">
+                                    @Html.TextBoxFor(m => m.Inventory.Mfg, new { @class = "form-control", @maxlength = "50", @placeholder = "Manufacturer" })
+                                </div>
+                                @if (!string.IsNullOrEmpty(Model.Inventory.Sdf1label))
+                                {
+                                    <label class="col-lg-3 control-label">@Model.Inventory.Sdf1label</label>
+                                    <div class="col-lg-3">
+                                        @Html.TextBoxFor(m => m.Inventory.Sdf1, new { @class = "form-control", @placeholder = @Model.Inventory.Sdf1label })
+                                    </div>
+                                }
+
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label class="col-lg-3 control-label">Model:</label>
+                                <div class="col-lg-3">
+                                    @Html.TextBoxFor(m => m.Inventory.Model, new { @class = "form-control", @maxlength = "50", @placeholder = "Model" })
+                                </div>
+                                @if (!string.IsNullOrEmpty(Model.Inventory.Sdf2label))
+                                {
+
+                                    <label class="col-lg-3 control-label">@Model.Inventory.Sdf2label</label>
+                                    <div class="col-lg-3">
+                                        @Html.TextBoxFor(m => m.Inventory.Sdf2, new { @class = "form-control", @placeholder = Model.Inventory.Sdf2label })
+                                    </div>
+                                }
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label class="col-lg-3 control-label">PO#:</label>
+                                <div class="col-lg-3">
+                                    @Html.TextBoxFor(m => m.Inventory.Pono, new { @class = "form-control", @maxlength = "50", @placeholder = "PO#" })
+                                </div>
+                                @if (!string.IsNullOrEmpty(Model.Inventory.Sdf3label))
+                                {
+                                    <label class="col-lg-3 control-label">@Model.Inventory.Sdf3label</label>
+                                    <div class="col-lg-3">
+                                        @Html.TextBoxFor(m => m.Inventory.Sdf3, new { @class = "form-control", @placeholder = @Model.Inventory.Sdf3label })
+                                    </div>
+                                }
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label class="col-lg-3 control-label">Fund:</label>
+                                <div class="col-lg-3">
+                                    @Html.TextBoxFor(m => m.Inventory.Fund, new { @class = "form-control", @maxlength = "50", @placeholder = "Fund" })
+                                </div>
+                                @if (!string.IsNullOrEmpty(Model.Inventory.Sdf4label))
+                                {
+                                    <label class="col-lg-3 control-label">@Model.Inventory.Sdf4label</label>
+                                    <div class="col-lg-3">
+                                        @Html.TextBoxFor(m => m.Inventory.Sdf4, new { @class = "form-control", @placeholder = @Model.Inventory.Sdf4label })
+                                    </div>
+                                }
+
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                <label class="col-lg-3 control-label">Funct:</label>
+                                <div class="col-lg-3">
+                                    @Html.TextBoxFor(m => m.Inventory.Funct, new { @class = "form-control", @maxlength = "50", @placeholder = "Funct" })
+                                </div>
+                            </div>
+
+
+                            @if (Convert.ToBoolean(Model.Inventory.Accounting))
+                            {
+
+                                <div class="form-group col-md-12">
+                                    <label class="col-lg-6 control-label">Annual Depreciation:</label>
+                                    <div class="col-lg-6">
+                                        @Html.TextBoxFor(m => m.Inventory.AnnualDepreciation, new { @class = "form-control", @readonly = true, @placeholder = "Annual Depreciation" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-12">
+                                    <label class="col-lg-6 control-label">Undepreciated Value:</label>
+                                    <div class="col-lg-6">
+                                        @Html.TextBoxFor(m => m.Inventory.UndepreciatedValue, new { @class = "form-control", @readonly = true, @placeholder = "Undepreciated Value" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-12">
+                                    <label class="col-lg-6 control-label">Accumulated Depreciation:</label>
+                                    <div class="col-lg-6">
+                                        @Html.TextBoxFor(m => m.Inventory.AccumulatedDepreciation, new { @class = "form-control", @readonly = true, @placeholder = "Accumulated Depreciation" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-12">
+                                    <label class="col-lg-6 control-label">Reporting Year:</label>
+                                    <div class="col-lg-6">
+                                        @Html.TextBoxFor(m => m.Inventory.ReportYear, new { @class = "form-control", @readonly = true, @placeholder = "Reporting Year" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-12">
+                                    <label class="col-lg-6 control-label">1st Year Depreciation:</label>
+                                    <div class="col-lg-6">
+                                        @Html.TextBoxFor(m => m.Inventory.FirstYearDepreciationText, new { @class = "form-control", @readonly = true, @placeholder = "1st Year Depreciation" })
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <div class='fileupload'>
+                                    @if (!string.IsNullOrEmpty(Model.Inventory.ImageFileName))
+                                    {
+                                        <img class="imgpreview" align='middle' src="@Url.Content("~/uploads/" + Model.Inventory.ImageFileName)" data-oldimage="@Model.Inventory.ImageFileName" />
+                                        <input type="button" class="delbtn removebtn btn btn-sm btn-danger" value="Remove">
+                                    }
+                                    else
+                                    {
+                                        <img class="imgpreview" align='middle' src="@Url.Content("~/Images/noimage.png")" />
+                                    }
+                                    <input type='file' name="file" class="fileup" />
+                                    @Html.HiddenFor(c => c.Inventory.ImageFileName)
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-footer">
+                    @if (!(ViewBag.BaseReadOnly))
+                    {
+                        <div class="modal-footer">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" id="btnSaveExit" class="btn btn-primary" value="Save / Exit" />
+                                <input type="button" id="btnUndo" class="btn btn-primary" value="Undo" />
+                                <input type="submit" id="btnSaveDupl" class="btn btn-primary" value="Save / Duplicate" />
+
+                                @if (!Convert.ToBoolean(Model.Inventory.MarkForDeletion))
+                                {
+                                    <input type="submit" id="btnDelete" class="btn btn-primary" value="Delete" />
+                                }
+                                else
+                                {
+                                    <input type="submit" id="btnUndoDelete" class="btn btn-primary" value="Undo Delete" />
+                                }
+                                <a href="@Url.Action("Index","Inventory")" class="btn btn-primary">Exit</a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            @if (!(ViewBag.BaseReadOnly))
+            {
+                <div class="btn-group pull-right">
+                    <button class="btn btn-sm btn-default pull-right clsMaintance">&nbsp; Add</button>
+                </div>
+            }
+            <h4 class="panel-title" data-toggle="collapse" data-parent="#accordion" href="#inventoryMaintenance">
+                Inventory Maintenance
+            </h4>
+        </div>
+        <div id="inventoryMaintenance" class="panel-collapse collapse">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table" id="tblInventoryMaintenance">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Change Type
+                                        </th>
+                                        <th>
+                                            Description
+                                        </th>
+                                        <th>
+                                            Month Acq
+                                        </th>
+                                        <th>
+                                            Year Acq
+                                        </th>
+                                        <th>
+                                            Cost
+                                        </th>
+                                        <td>
+                                            Edit
+                                        </td>
+                                        <td>
+                                            Delete
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*<div class="panel panel-primary">
+            <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#inventoryDepartment">
+                <h4 class="panel-title">
+                    Inventory Department
+                </h4>
+            </div>
+            <div id="inventoryDepartment" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table class="table" id="tblInventoryDepartment">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Department Code
+                                            </th>
+                                            <th>
+                                                Department Name
+                                            </th>
+                                            <th>
+                                                Mark for Deletion
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    @*<thead class="filters">
+                                        <tr>
+                                            <td>
+                                                Department Code
+                                            </td>
+                                            <td>
+                                                Department Name
+                                            </td>
+                                            <td>
+                                                Mark for Deletion
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+</div>
+
+
+<div class="modal fade" id="myInventoryMaintanance" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title">
+                    Inventory maintanace
+                </h4>
+            </div>
+            <!-- Modal Body -->
+            <div class="modal-body" id="popupAdd">
+                @Html.Partial("_AddEditInventoryMaintenance", Model);
+            </div>
+            <!-- Modal Footer -->
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+<script type="text/javascript">
+        //// attach handler to form's submit event
+        //$('#frmInventory').submit(function ()
+        //{
+        //    // submit the form
+        //    $(this).ajaxSubmit();
+        //    // return false to prevent normal browser submit and page navigation
+        //    return false;
+        //});
+
+        var isExit = false;
+
+            function initDepartment() {
+                var columns = [
+                    { data: "DepartmentCode" },
+                    { data: "DepartmentName" },
+                    { data: "MarkForDeletion" }
+                ];
+                InitializeDatatable('tblInventoryDepartment',
+                    '@Url.Action("InventoryDepartmentList", "Inventory")',
+                    columns,
+                    [],
+                    @ViewBag.BasePageSize,
+                    false,
+                    true,
+                    false
+                );
+            }
+
+
+            function loadInventoryMaintanancePopup(Id) {
+                $.ajax({
+                    url: '@Url.Action("_AddEditInventoryMaintenance", "Inventory")' + '?MaintananceId=' + Id,
+                    type: 'GET',
+                    success: function (html) {
+                        $('#popupAdd').html(html);
+                        if (!($('#myInventoryMaintanance').is(':visible'))) {
+                            $('#myInventoryMaintanance').modal('show');
+                            fnFormvalidate("frnChangesMaintanance");
+                        }
+                    },
+                    error: function () {
+                        alert('There is some issue, Please try again after some time.')
+                    }
+                });
+            }
+
+            function initMaintanance() {
+                var columns = [
+                    { data: "ChangeType" },
+                    { data: "Description" },
+                    { data: "MonthAcq" },
+                    { data: "YearAcq" },
+                    { data: "Cost" },
+                    { data: "InventoryMaintenanceId" }
+                ];
+
+
+                 $.ajax({
+                        url: '@Url.Action("InventoryMaintananceList", "Inventory",new { InventoryId = Model.Inventory.InventoryId })',
+                        type: 'GET',
+                        dataType: "json",
+                        success: function (response) {
+
+                            //if (response.data.length > 0)
+                            //{
+                                var table = $('#tblInventoryMaintenance').DataTable({
+                                    data: response.data,
+                                    columns: columns,
+                                        destroy: true,
+                                        "aLengthMenu": [
+                                            [5, 10, 15, 20, -1],
+                                            [5, 10, 15, 20, "All"]
+                                    ],
+                                    "bPaginate": false,
+                                    "bInfo": false,
+                                    "responsive": true,
+                                    autoWidth: false,
+                                    //dom: 'Bfrtip',
+                                    //buttons: [
+                                    //    {
+                                    //        extend: 'csvHtml5',
+                                    //        title: 'InventoryMaintanance csv',
+                                    //        className: 'btn btn-primary',
+                                    //        exportOptions: {
+                                    //            columns: [0, 1, 2, 3]
+                                    //        }
+                                    //    },
+                                    //    {
+                                    //        extend: 'excelHtml5',
+                                    //        title: 'InventoryMaintanance excel',
+                                    //        className: 'btn btn-primary',
+                                    //        exportOptions: {
+                                    //            columns: [0, 1, 2, 3]
+                                    //        }
+                                    //    }
+                                    //],
+
+                                    "columnDefs": [
+                                        {
+                                            "mRender": function (data, type, row)
+                                            {
+                                                var html = '<a href="#" class="clsEditInventoryMaintanance" data-inventoryMaintenanceId=' + row.InventoryMaintenanceId+'>Edit</a>';
+                                                return html;
+                                            },
+                                            "targets": 5,
+                                            "visible": false,
+
+                                        },
+                                        {
+                                            "mRender": function (data, type, row) {
+                                                var html = '<button  class="btn btn-sm btn-danger clsDeleteInventoryMaintanance" data-inventorymaintenanceId=' + row.InventoryMaintenanceId + '>Delete</button>';
+                                                return html;
+                                            },
+                                            "targets": 6,
+                                            "visible": true,
+
+                                        },
+                                    ],
+                                     "iDisplayLength": @ViewBag.BasePageSize,
+                                     "language": {
+                                         "emptyTable": "No data available in table"
+                                    },
+                                    "drawCallback": function (settings) {
+                                        var api = this.api();
+                                        $("#tblInventoryMaintenance tbody tr").dblclick(function () {
+                                            loadInventoryMaintanancePopup(table.row(this).data().InventoryMaintenanceId);
+                                        });
+                                    }
+                                })
+                        },
+                        error: function (req, status, error) {
+                            alert('There is some issue with server. Please try again later.');
+                        }
+                });
+
+
+                @*InitializeDatatable('tblInventoryMaintenance',
+                    '@Url.Action("InventoryMaintananceList", "Inventory",new { InventoryId = Model.Inventory.InventoryId })',
+                    columns,
+                    [],
+                    @ViewBag.BasePageSize,
+                    false,
+                    true,
+                    false
+                );*@
+            }
+
+        function DeleteInventoryMaintanance(MaintananceId)
+        {
+            $.ajax({
+                url: '@Url.Action("DeleteInventoryMaintanance", "Inventory")',
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    MaintananceId: MaintananceId
+                },
+                success: function (result) {
+                    console.log(result);
+                    alert(result.Message);
+                    if (result.Status) {
+                        //alert('delete ' + UserId);
+                        initMaintanance();
+                    }
+                },
+                error: function () {
+                    alert('There is some issue, Please try again after some time.')
+                }
+            });
+        }
+
+        function readURL() {
+            var $input = $(this);
+            var $newinput = $(this).parent().parent().parent().find('.imgpreview');
+            if (this.files && this.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    reset($newinput.next('.delbtn'), true);
+                    $newinput.attr('src', e.target.result).show();
+                    $newinput.after('<input type="button" class="delbtn removebtn btn btn-sm btn-danger" value="Remove">');
+                }
+                reader.readAsDataURL(this.files[0]);
+            }
+        }
+
+        function reset(elm, prserveFileName) {
+
+            if (elm && elm.length > 0) {
+                var $input = elm;
+                $input.prev('.imgpreview').attr('src', '@Url.Content("~/Images/noimage.png")');//.hide();
+                if (!prserveFileName) {
+                    $($input).parent().parent().parent().find('input.fileup').val("");
+                    $("#Inventory_ImageFileName").val('');
+                    //input.fileUpload and input#uploadre both need to empty values for particular div
+                }
+                elm.remove();
+            }
+        }
+            $(document).ready(function () {
+                fnFormvalidate("frmInventory");
+                //initDepartment();
+                initMaintanance();
+
+                $(".fileup").change(readURL);
+                $("form").on('click', '.delbtn', function (e) {
+                    reset($(this));
+                });
+
+                $('#btnSaveExit').click(function () {
+                    isExit = true;
+                    $('#IsDuplicate').val(false);
+                });
+
+                $('#btnSaveDupl').click(function () {
+                    $('#IsDuplicate').val(true);
+                });
+
+                $('#btnDelete').click(function () {
+                    $('#Inventory_MarkForDeletion').val(true);
+                });
+
+                $('#btnUndoDelete').click(function () {
+                    $('#Inventory_MarkForDeletion').val(false);
+                });
+
+                $('#btnUndo').click(function () {
+                    window.location.reload();
+                });
+
+                $('#Inventory_BuildingId').change(function () {
+                    fillDDLFromOther('Inventory_RoomId','@Url.Action("GetRoomListByBuildingId", "Inventory")?BuildingId=' + $(this).val());
+                });
+
+                $(document).on('click', '.clsMaintance', function () {
+                    loadInventoryMaintanancePopup(0);
+                });
+
+                $(document).on('click', '.clsEditInventoryMaintanance', function () {
+                    loadInventoryMaintanancePopup($(this).data('inventorymaintenanceid'));
+                });
+
+                $(document).on('click', '.clsDeleteInventoryMaintanance', function () {
+                    DeleteInventoryMaintanance($(this).data('inventorymaintenanceid'));
+                });
+
+                $('#frmInventory').submit(function (e) {
+                    //if ($("#frmInventory").valid()) {
+                    e.preventDefault(); // avoid to execute the actual submit of the form.
+                    if (!$("#frmInventory").valid()) {
+                        return;
+                    }
+
+
+                    $(this).ajaxSubmit({
+                        success: function (responseText, statusText, xhr, $form) {
+                            alert(responseText.Message);
+                            console.log(responseText);
+                            
+                            if (responseText.Status) {
+                                console.log('adssada')
+                                if (isExit) {
+                                    console.log('0')
+                                    window.location.href = '@Url.Action("Index", "Inventory")';
+                                }
+                                $('#myInventoryMaintanance').modal('hide');
+                                initMaintanance();
+
+                            } else {
+                                console.log('1213')
+                                isExit = false;
+                            }
+                        }
+                    });
+                    //}
+                    return false;
+                });
+
+
+
+            $(document).on('click','#AddChange',function () {
+
+                var form = $('#frnChangesMaintanance');
+
+                if (!form.valid()) {
+                    return;
+                }
+
+                var url = form.attr('action');
+
+                var data = {
+                    InventoryMaintenanceId: $('#objtblInventoryMaintenanceDTO_InventoryMaintenanceId').val(),
+                    ChangeTypeId: $('#objtblInventoryMaintenanceDTO_ChangeTypeId').val(),
+                    Description: $('#objtblInventoryMaintenanceDTO_Description').val(),
+                    MonthAcq: $('#objtblInventoryMaintenanceDTO_MonthAcq').val(),
+                    YearAcq: $('#objtblInventoryMaintenanceDTO_YearAcq').val(),
+                    Cost: $('#objtblInventoryMaintenanceDTO_Cost').val(),
+                    InventoryId: '@Model.Inventory.InventoryId'
+                }
+
+
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: { tblInventoryMaintenanceDTO: data }, // serializes the form's elements.
+                    dataType: "json",
+                    success: function (responseData) {
+                        alert(responseData.Message);
+                        console.log(responseData.Status);
+                        if (responseData.Status) {
+                            initMaintanance();
+                            $('#myInventoryMaintanance').modal('hide');
+                        }
+
+                    },
+                    error: function () {
+                        alert('There is some issue please try again after some time.')
+                    }
+            });
+
+        });
+
+
+     })
+</script>
+}

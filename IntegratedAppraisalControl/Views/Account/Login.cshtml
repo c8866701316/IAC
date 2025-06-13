@@ -1,0 +1,68 @@
+﻿@model IntegratedAppraisalControl.Controllers.LoginData
+@{ 
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>Industrial Appraisal Company</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/stylesheet.css" rel="stylesheet">
+    <link href="~/Content/responsive.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <div class="vAlignMiddle">
+        <div class="formDivOuter">
+            <div class="formDiv">
+                <h1>Industrial Appraisal Company</h1>
+                <div class="loginForm">
+                    @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <h2>Login</h2>
+                        <div class="formUserPass">
+                            <div class="inputField">
+                                <i class="icon user"></i>
+                                <div class="inputOuter">
+                                    @Html.TextBoxFor(m => m.Username, new { @class = "inputClass", @placeholder = "Enter your username" })
+                                    @Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="inputField mar15">
+                                <i class="icon pass"></i>
+                                <div class="inputOuter">
+                                    @Html.PasswordFor(m => m.Password, new { @class = "inputClass", @placeholder = "Enter your password" })
+                                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="rememberMe">
+                                @Html.CheckBoxFor(m => m.RememberMe, new { @class = "checkBoxMe" })
+                                @Html.LabelFor(m => m.RememberMe, new { @class = "labelClass checkbox" })
+
+                                @*<input type="checkbox" id="remember" name="rememberMe" class="checkBoxMe">
+                                    <label for="remember" class="labelClass checkbox"><span>Remember Password</span></label>*@
+                            </div>
+                            <input type="submit" value="Login" class="btn pinkBtn pull-right">
+                        </div>
+
+                    }
+                </div>
+                @*<div class="forgotCreate">
+                        <p><a href="#">Forgot Password</a> <span>OR</span> <a href="#">Create an Account</a></p>
+                    </div>*@
+            </div>
+        </div>
+    </div>
+
+    <script src="~/Scripts/jquery-2.1.1.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/custom.js"></script>
+</body>
+</html>

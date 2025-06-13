@@ -1,0 +1,148 @@
+﻿@model IntegratedAppraisalControl.Models.DTO.TblClientsDTO
+@{
+    ViewBag.Title = "Location selection";
+}
+<div class="panel-group main" id="accordion">
+    <div class="panel panel-primary">
+        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#buildingmain">
+            <h4 class="panel-title">
+                Location List
+            </h4>
+        </div>
+        <div id="buildingmain" class="panel-collapse collapse in">
+
+            <div class="panel-body">
+                @*<div class="row">
+                        <div class="col-md-12 form-group">
+                            <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#modalAddBuilding">Add</button>
+                        </div>
+                    </div>*@
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table id="tblClientList">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ClientId)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ClientName)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.FileNo)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Address1)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Address2)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.City)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.State)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ZipCode)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ReportYear)
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+@section Scripts{
+<script type="text/javascript">
+           $.ajax({
+                url: '@Url.Action("ClientList", "Home")',
+                type: 'GET',
+                dataType: "json",
+                success: function (response) {
+
+                    //if (response.data.length > 0)
+                    //{
+
+                        //$('#tblClientList .filters td').each(function () {
+                        //    var title = $('#tblClientList thead th').eq($(this).index()).text();
+                        //    $(this).html('<input type="text" class="cust-input-sm" placeholder="Search ' + title.trim() + '" />');
+                        //});
+
+                        //$('#tblClientList tfoot th').each(function () {
+                        //    var title = $(this).text();
+                        //    $(this).html('<input type="text" class="cust-input-sm" placeholder="Search ' + title.trim() + '" />');
+                        //});
+
+                    var table = $('#tblClientList').DataTable({
+                        data: response.data,
+                        columns: [
+                            { data: "ClientId" },
+                            { data: "ClientName" },
+                            { data: "FileNo" },
+                            { data: "Address1" },
+                            { data: "Address2" },
+                            { data: "City" },
+                            { data: "State" },
+                            { data: "ZipCode" },
+                            { data: "ReportYear" }
+                        ],
+                        destroy: true,
+                        "aLengthMenu": [
+                            [5, 10, 15, 20, -1],
+                            [5, 10, 15, 20, "All"]
+                        ],
+                        "aoColumnDefs": [
+                            {
+                                "aTargets": [0],
+                                "visible": false
+                            }
+                        ],
+                        //"bInfo": false,
+                        "bPaginate": true,
+                        "iDisplayLength": 10,
+                        "drawCallback": function (settings) {
+                            var api = this.api();
+                            $("#tblClientList tbody tr").dblclick(function () {
+                                window.location.href = '@Url.Action("SelectClient", "Home")' + '?ClientId=' + table.row(this).data().ClientId;
+                            });
+                        }
+                    });
+                         //    .columns().eq(0).each(function (colIdx) {
+                         //    $('input', $('.filters td')[colIdx]).on('keyup change', function () {
+                         //        table
+                         //            .column(colIdx)
+                         //            .search(this.value)
+                         //            .draw();
+                         //    });
+                         //});
+
+
+                    @*
+                        $("#tblClientList tbody tr").unbind("dblclick");
+
+                    $(document).on("dblclick", "#tblClientList tbody tr", function () {
+                            window.location.href = '@Url.Action("SelectClient", "Home")' + '?ClientId=' + table.row(this).data().ClientId;
+                    });
+                    $('#tblClientList tbody tr').dblclick(function () {
+                    console.log(table.row(this).data().ClientId);
+                        window.location.href = '@Url.Action("SelectClient", "Home")' + '?ClientId=' + table.row(this).data().ClientId;
+                    });
+                        *@
+                },
+                error: function (req, status, error) {
+                    alert('There is some issue with server. Please try again later.');
+                }
+            });
+</script>
+}

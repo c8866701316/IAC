@@ -1,0 +1,13 @@
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Release\netcoreapp2.1\IntegratedAppraisalControl.Business.deps.json
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Release\netcoreapp2.1\IntegratedAppraisalControl.Business.dll
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Release\netcoreapp2.1\IntegratedAppraisalControl.Business.pdb
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Release\netcoreapp2.1\IntegratedAppraisalControl.Data.dll
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Release\netcoreapp2.1\IntegratedAppraisalControl.Models.dll
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Release\netcoreapp2.1\IntegratedAppraisalControl.Data.pdb
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Release\netcoreapp2.1\IntegratedAppraisalControl.Models.pdb
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Release\netcoreapp2.1\IntegratedAppraisalControl.Business.csproj.CoreCompileInputs.cache
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Release\netcoreapp2.1\IntegratedAppraisalControl.Business.AssemblyInfoInputs.cache
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Release\netcoreapp2.1\IntegratedAppraisalControl.Business.AssemblyInfo.cs
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Release\netcoreapp2.1\IntegratedAppraisalControl.Business.dll
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Release\netcoreapp2.1\IntegratedAppraisalControl.Business.pdb
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Release\netcoreapp2.1\IntegratedAppraisalControl.Business.csprojResolveAssemblyReference.cache

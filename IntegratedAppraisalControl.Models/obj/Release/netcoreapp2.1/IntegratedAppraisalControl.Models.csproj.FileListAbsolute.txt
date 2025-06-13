@@ -1,0 +1,9 @@
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Models\bin\Release\netcoreapp2.1\IntegratedAppraisalControl.Models.deps.json
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Models\bin\Release\netcoreapp2.1\IntegratedAppraisalControl.Models.dll
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Models\bin\Release\netcoreapp2.1\IntegratedAppraisalControl.Models.pdb
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Models\obj\Release\netcoreapp2.1\IntegratedAppraisalControl.Models.csproj.CoreCompileInputs.cache
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Models\obj\Release\netcoreapp2.1\IntegratedAppraisalControl.Models.AssemblyInfoInputs.cache
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Models\obj\Release\netcoreapp2.1\IntegratedAppraisalControl.Models.AssemblyInfo.cs
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Models\obj\Release\netcoreapp2.1\IntegratedAppraisalControl.Models.dll
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Models\obj\Release\netcoreapp2.1\IntegratedAppraisalControl.Models.pdb
+E:\Client\Fiverr\Chris Kuntz\Project\IcaHomeValuation\IntegratedAppraisalControl.Models\obj\Release\netcoreapp2.1\IntegratedAppraisalControl.Models.csprojResolveAssemblyReference.cache

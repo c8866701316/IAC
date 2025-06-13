@@ -1,0 +1,377 @@
+﻿@model IntegratedAppraisalControl.Models.DTO.TblUsersDTO
+@{
+    ViewBag.Title = "Users";
+}
+
+<div class="panel-group main" id="accordion">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            @if (!(ViewBag.BaseReadOnly))
+            {
+                <div class="btn-group pull-right">
+                    <button class="btn btn-default btn-sm" id="btnAdd">Add</button>
+                </div>
+            }
+            <h4 class="panel-title">
+                @ViewBag.Title
+            </h4>
+        </div>
+        <div id="buildingsections" class="panel-collapse collapse in">
+            <div class="panel-body">
+
+                @*@if (!(ViewBag.BaseReadOnly))
+                    {
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <button class="btn btn-primary pull-right" id="btnAdd">Add</button>
+                            </div>
+                        </div>
+                    }*@
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive" style="overflow-x:scroll">
+                            <table class="table" id="tblUsers">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            User Name
+                                        </th>
+                                        <th>
+                                            First Name
+                                        </th>
+                                        <th>
+                                            Last Name
+                                        </th>
+                                        <th>
+                                            Mark for Deletion
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                @*<thead class="filters">
+                                        <tr>
+                                            <th>
+                                                User Name
+                                            </th>
+                                            <th>
+                                                First Name
+                                            </th>
+                                            <th>
+                                                Last Name
+                                            </th>
+                                            <th>
+                                                Mark for Deletion
+                                            </th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>*@
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (!(ViewBag.BaseReadOnly))
+{
+    <div class="modal fade" id="modalAddUsers" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg" style="width: 1140px;">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <button type="button" class="close"
+                            data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title">
+                        Add/Update Users
+                    </h4>
+                </div>
+                <!-- Modal Body -->
+                <div class="modal-body" id="popupAdd">
+                </div>
+                <!-- Modal Footer -->
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts{
+    <script type="text/javascript">
+
+        function LoadTaleData() {
+                $.ajax({
+                    url: '@Url.Action("UserList", "Users")',
+                    type: 'GET',
+                    dataType: "json",
+                    success: function (response) {
+
+                        //if (response.data.length > 0)
+                        //{
+                            var table = $('#tblUsers').DataTable({
+                                    data: response.data,
+                                     columns: [
+                                         { data: "UserName" },
+                                         { data: "FirstName" },
+                                         { data: "LastName" },
+                                         { data: "MarkForDeletion" },
+                                         { data: "UserId" }
+                                        ],
+                                    destroy: true,
+                                    "aLengthMenu": [
+                                        [5, 10, 15, 20, -1],
+                                        [5, 10, 15, 20, "All"]
+                                ],
+                                dom: 'Bfrtip',
+                                buttons: [
+                                    {
+                                        extend: 'csvHtml5',
+                                        title: 'User csv',
+                                        className:'btn btn-primary',
+                                        exportOptions: {
+                                            columns: [0, 1, 2, 3]
+                                        }
+                                    },
+                                    {
+                                        extend: 'excelHtml5',
+                                        title: 'User excel',
+                                        className: 'btn btn-primary',
+                                        exportOptions: {
+                                             columns: [0, 1, 2, 3]
+                                        }
+                                    }
+                                ],
+                                    "columnDefs": [
+                                     {
+                                         "mRender": function (data, type, row)
+                                         {
+                                             var html = '<a href="#" class="clsEdit" data-userid='+data+'>Edit</a>';
+                                             return html;
+                                         },
+                                            "targets": 4,
+                                        "visible":false
+                                     },
+                                 ],
+                                 "iDisplayLength": @ViewBag.BasePageSize,
+                                 "language": {
+                                     "emptyTable": "No data available in table"
+                                },
+                                "drawCallback": function (settings) {
+                                    var api = this.api();
+                                    $("#tblUsers tbody tr").dblclick(function () {
+                                        loadPopup(table.row(this).data().UserId);
+                                    });
+                                }
+                            })
+                            $('#tblUsers tbody tr').dblclick(function () {
+                                loadPopup(table.row(this).data().UserId);
+                            });
+                             //    .columns().eq(0).each(function (colIdx) {
+                             //    $('input', $('.filters td')[colIdx]).on('keyup change', function () {
+                             //        table
+                             //            .column(colIdx)
+                             //            .search(this.value)
+                             //            .draw();
+                             //    });
+                             //});
+                        //}
+                    },
+                    error: function (req, status, error) {
+                        alert('There is some issue with server. Please try again later.');
+                    }
+            });
+        }
+
+        function loadPopup(UserId) {
+
+            $.ajax({
+                url: '@Url.Action("_User", "Users")',
+                type: 'GET',
+                data: {
+                    UserId: UserId
+                },
+                success: function (html) {
+                    $('#popupAdd').html(html);
+                    fnFormvalidate("frmUsers");
+                    if ($('#ReadOnly').val() == 'True') {
+                        $("input[name=optrole][value='ReadOnly']").prop("checked", true);
+                    }
+                    if ($('#ClientAdmin').val() == 'True') {
+                        $("input[name=optrole][value='ClientAdmin']").prop("checked", true);
+                    }
+
+                    if ($('#SuperAdmin').val() == 'True') {
+                        $("input[name=optrole][value='SuperAdmin']").prop("checked", true);
+                    }
+
+                    if (!($('#modalAddUsers').is(':visible')))
+                    {
+                        $('#modalAddUsers').modal('show');
+                    }
+
+                    $('#tblClients').DataTable();
+                },
+                error: function () {
+                    alert('There is some issue, Please try again after some time.');
+                }
+            });
+        }
+
+        function AddUpdateUser(userid) {
+
+            if (!$('#frmUsers').valid()) {
+                return;
+            }
+
+            $.ajax({
+                url: '@Url.Action("AddUser", "Users")',
+                type: 'POST',
+                dataType:'json',
+                data: $('#frmUsers').serialize(),
+                success: function (result) {
+                    console.log(result);
+                    if (result.Status)
+                    {
+                        $('#modalAddUsers').modal('hide');
+                        LoadTaleData();
+                    }
+                    alert(result.Message);
+                    console.log(result.Data);
+                },
+                error: function () {
+                    alert('There is some issue, Please try again after some time.')
+                }
+            });
+        }
+
+        function DeleteUsersClients(UsersClientsId,UserId)
+        {
+            $.ajax({
+                url: '@Url.Action("DeleteUsersClients", "Users")',
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    UsersClientsId: UsersClientsId
+                },
+                success: function (result) {
+                    console.log(result);
+                    alert(result.Message);
+                    if (result.Status) {
+                        loadPopup(UserId);
+                    }
+                },
+                error: function () {
+                    alert('There is some issue, Please try again after some time.');
+                }
+            });
+        }
+
+        function AddUsersClients(usersid, UsersClientsClientIds)
+        {
+            $.ajax({
+                url: '@Url.Action("AddUsersClients", "Users")',
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    UserId: usersid,
+                    ClientId: UsersClientsClientIds
+                },
+                success: function (result) {
+                    alert(result.Message);
+                    if (result.Status) {
+                        loadPopup(usersid);
+                    }
+                },
+                error: function () {
+                    alert('There is some issue, Please try again after some time.')
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            fnFormvalidate("frmUser");
+
+           
+            LoadTaleData();
+
+            $('#tblUsers').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ]
+            });
+
+            $(document).on('click', '#btnSave', function () {
+                $('#IsDuplicate').val(false);
+                AddUpdateUser();
+            });
+
+            $(document).on('click', '#btnSaveDup', function () {
+                $('#IsDuplicate').val(true);
+                AddUpdateUser();
+            });
+
+            $(document).on('click', '#btnUndo', function () {
+                loadPopup($(this).data('userid'));
+            });
+            $(document).on('click', '.clsEdit', function () {
+                loadPopup($(this).data('userid'));
+            });
+
+
+            $(document).on('click', '#btnExit', function () {
+                $('#modalAddUsers').modal('hide');
+            });
+
+            $(document).on('click', '#btnDelete', function () {
+                $('#MarkForDeletion').val(true);
+                AddUpdateUser();
+            });
+
+            $(document).on('click', '#btnUndoDelete', function () {
+                $('#MarkForDeletion').val(false);
+                AddUpdateUser();
+            });
+            
+
+            $('#btnAdd').click(function () {
+                loadPopup(0);
+            });
+
+            $(document).on('click', '.clsDeleteUsersClients', function () {
+                DeleteUsersClients($(this).data('usersclientid'), $(this).data('userid'));
+            });
+
+            $(document).on('click', '.clsAddUserClient', function () {
+                var UsersClientsClientId = '';
+
+                if ($("#UsersClientsClientId").val() == "")
+                {
+                    alert('Please select client');
+                    return false;
+                }
+                else {
+                    UsersClientsClientId = $('#UsersClientsClientId').val();
+                }
+
+                var usersid = $(this).data('userid');
+                AddUsersClients(usersid, UsersClientsClientId);
+            });
+
+
+            $(document).on('change', 'input[type=radio][name=optrole]', function ()
+            {
+                $('#ReadOnly').val(false);
+                $('#ClientAdmin').val(false);
+                $('#SuperAdmin').val(false);
+                $('#'+ $(this).val()).val(true);
+            });
+        });
+
+    </script>
+}
+

@@ -1,0 +1,257 @@
+﻿@model IntegratedAppraisalControl.Models.DTO.TblRoomsDTO
+@{
+    ViewBag.Title = "Room";
+}
+
+<div class="panel-group main" id="accordion">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            @if (!(ViewBag.BaseReadOnly))
+            {
+                <div class="btn-group pull-right">
+                    <button class="btn btn-default btn-sm" id="btnAdd">Add</button>
+                </div>
+            }
+            <h4 class="panel-title">
+                @ViewBag.Title
+            </h4>
+        </div>
+        <div id="buildingsections" class="panel-collapse collapse in">
+            <div class="panel-body">
+
+                @*@if (!(ViewBag.BaseReadOnly))
+                    {
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <button class="btn btn-primary pull-right" id="btnAdd">Add</button>
+                            </div>
+                        </div>
+                    }*@
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive" style="overflow-x:scroll">
+                            <table class="table" id="tblRoom">
+                                <thead>
+                                    <tr>
+                                        <th>Building Code</th>
+                                        <th>
+                                            Room Code
+                                        </th>
+                                        <th>
+                                            Room Name
+                                        </th>
+                                        <th>
+                                            Mark for Deletion
+                                        </th>
+                                        <th>
+
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (!(ViewBag.BaseReadOnly))
+{
+    <div class="modal fade" id="modalAddRoom" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg" style="width: 1140px;">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <button type="button" class="close"
+                            data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title">
+                        Add/Update Room
+                    </h4>
+                </div>
+                <!-- Modal Body -->
+                <div class="modal-body" id="popupAdd">
+                </div>
+                <!-- Modal Footer -->
+            </div>
+        </div>
+    </div>
+}
+
+
+
+@section Scripts{
+    <script type="text/javascript">
+
+        function LoadTaleData() {
+                $.ajax({
+                    url: '@Url.Action("RoomList", "Rooms")',
+                    type: 'GET',
+                    dataType: "json",
+                    success: function (response) {
+
+                        if (response.data.length > 0)
+                        {
+                            var table = $('#tblRoom').DataTable({
+                                data: response.data,
+                                columns: [
+                                    { data: "BuildingCode" },
+                                    { data: "RoomCode" },
+                                    { data: "RoomDescription" },
+                                    { data: "MarkForDeletion" },
+                                    { data: "RoomId" }
+                                ],
+                                destroy: true,
+                                "aLengthMenu": [
+                                    [5, 10, 15, 20, -1],
+                                    [5, 10, 15, 20, "All"]
+                                ],
+                                dom: 'Bfrtip',
+                                buttons: [
+                                    {
+                                        extend: 'csvHtml5',
+                                        title: 'Rooms',
+                                        className: 'btn btn-primary',
+                                        exportOptions: {
+                                            columns: [0, 1, 2, 3]
+                                        }
+                                    },
+                                    {
+                                        extend: 'excelHtml5',
+                                        title: 'Rooms',
+                                        className: 'btn btn-primary',
+                                        exportOptions: {
+                                            columns: [0, 1, 2, 3]
+                                        }
+                                    }
+                                ],
+                                "columnDefs": [
+                                    {
+                                        "mRender": function (data, type, row) {
+                                            var html = '<a href="#" class="clsEdit" data-roomid=' + data + '>Edit</a>';
+                                            return html;
+                                        },
+                                        "targets": 4,
+                                        "visible": false
+                                    },
+                                ],
+                                "pageLength": @ViewBag.BasePageSize,
+                                "language": {
+                                    "emptyTable": "No data available in table"
+                                },
+                                "drawCallback": function (settings) {
+                                    var api = this.api();
+                                    $("#tblRoom tbody tr").dblclick(function () {
+                                        loadPopup(table.row(this).data().RoomId);
+                                    });
+                                }
+                            });
+                        }
+                    },
+                    error: function (req, status, error) {
+                        alert('There is some issue with server. Please try again later.');
+                    }
+            });
+        }
+
+        function loadPopup(roomid) {
+            $.ajax({
+                url: '@Url.Action("_Room", "Rooms")',
+                type: 'GET',
+                data: {
+                    roomid: roomid
+                },
+                success: function (html) {
+                    $('#popupAdd').html(html);
+                    if (!($('#modalAddRoom').is(':visible'))) {
+                        $('#modalAddRoom').modal('show');
+                        fnFormvalidate("frmRoom");
+                    }
+
+                },
+                error: function () {
+                    alert('There is some issue, Please try again after some time.')
+                }
+            });
+        }
+
+        function AddUpdateRoom(roomid) {
+
+            if (!$('#frmRoom').valid()) {
+                return;
+            }
+
+            $.ajax({
+                url: '@Url.Action("AddUpdate", "Rooms")',
+                type: 'POST',
+                dataType:'json',
+                data: $('#frmRoom').serialize(),
+                success: function (result) {
+                    console.log(result);
+                    if (result.Status)
+                    {
+                        $('#modalAddRoom').modal('hide');
+                        LoadTaleData();
+                    }
+                    alert(result.Message);
+                    console.log(result.Data);
+                },
+                error: function () {
+                    alert('There is some issue, Please try again after some time.')
+                }
+            });
+
+        }
+
+        $(document).ready(function () {
+
+
+            LoadTaleData();
+
+            $(document).on('click', '#btnSave', function () {
+                $('#IsDuplicate').val(false);
+                AddUpdateRoom();
+            });
+
+            $(document).on('click', '#btnSaveDup', function () {
+                $('#IsDuplicate').val(true);
+                AddUpdateRoom();
+            });
+
+            $(document).on('click', '#btnUndo', function () {
+                loadPopup($(this).data('roomid'));
+            });
+            $(document).on('click', '.clsEdit', function () {
+                loadPopup($(this).data('roomid'));
+            });
+
+            $(document).on('click', '#btnExit', function () {
+                $('#modalAddRoom').modal('hide');
+            });
+
+            $(document).on('click', '#btnDelete', function () {
+                $('#MarkForDeletion').val(true);
+                AddUpdateRoom();
+            });
+
+            $(document).on('click', '#btnUndoDelete', function () {
+                $('#MarkForDeletion').val(false);
+                AddUpdateRoom();
+            });
+
+
+            $('#btnAdd').click(function () {
+                loadPopup(0);
+            });
+
+            fnFormvalidate("frmRoom");
+
+        });
+    </script>
+}
+

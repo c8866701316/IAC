@@ -1,0 +1,199 @@
+﻿@{
+    string HomeUrl = Url.Action("ClientSelection", "Home");
+    if (ViewBag.BaseClientId != null && ViewBag.BaseClientId != 0)
+    {
+        HomeUrl = Url.Action("Index", "Home");
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - IntegratedAppraisalControl</title>
+    @*<environment include="Development">
+            <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+            <link rel="stylesheet" href="~/css/site.css" />
+        </environment>
+        <environment exclude="Development">
+            <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+                  asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+                  asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+            <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        </environment>*@
+
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link href="~/Content/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/demos.css" rel="stylesheet" />
+    <link href="~/Content/Gridmvc.css" rel="stylesheet" />
+    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
+    <link href="~/Content/jquery-ui.theme.min.css" rel="stylesheet" />
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+    <link href="~/Content/responsive.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="~/Content/stylesheet.css" rel="stylesheet" />
+
+    <link href="~/Content/custom.css" rel="stylesheet" />
+
+    <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+    <link href="~/Content/themes/base/accordion.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/all.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/autocomplete.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/base.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/button.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/core.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/datepicker.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/dialog.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/draggable.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/menu.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/progressbar.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/resizable.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/selectable.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/selectmenu.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/slider.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/sortable.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/spinner.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/tabs.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/theme.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/tooltip.css" rel="stylesheet" />
+
+    <script src="~/Scripts/jquery-2.1.1.js"></script>
+
+    <script src="~/Scripts/jquery-ui-1.11.2.js"></script>
+    @*<script src="~/Scripts/jquery.validate.js"></script>*@
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/additional-methods.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/additional-methods.min.js"></script>
+
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
+
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/respond.js"></script>
+    <script src="~/Scripts/bootstrap-hover-dropdown.js"></script>
+    <script src="~/Scripts/gridmvc.js"></script>
+    <script src="~/Scripts/custom.js"></script>
+    <script src="~/Scripts/modernizr-2.7.2.js"></script>
+    <script src="~/Scripts/jquery.imagebox.js"></script>
+    <script src="~/Scripts/jquery.form.js"></script>
+
+    <style type="text/css">
+        .required2 {
+            border-left: 2px solid #b94a48 !important;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <div class="headerTop">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-6 fullDiv01">
+                            <div class="logo"><a href="@HomeUrl"><img src="~/Content/images/logo.png" alt="logo" /></a></div>
+                        </div>
+                        <div class="col-xs-6  fullDiv01">
+                            <div class="rightHeaderSection">
+
+                                <span class="homeTab"><a href="@HomeUrl">Main</a></span>
+                                <div class="userLogin">
+                                    <div class="logDiv">
+                                        <partial name="_LoginPartial" />
+                                    </div>
+                                </div>
+
+
+                                <div class="userLogin">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @if (ViewBag.BaseClientId != null && ViewBag.BaseClientId != 0)
+            {
+                <div class="headerBottom">
+                    <partial name="_headerMenu" />
+                </div>
+            }
+
+        </div>
+        <div class="main-section">
+            <div class="container">
+                @RenderBody()
+            </div>
+        </div>
+        <div class="footer">
+            <div class="container">
+                <p>Copyright © 2015 Industrial Appraisal Company</p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    @*<nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">IntegratedAppraisalControl</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>*@
+
+    @*<partial name="_CookieConsentPartial" />*@
+
+    @*<div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; 2018 - IntegratedAppraisalControl</p>
+            </footer>
+        </div>*@
+
+    <script src="~/Scripts/baseFunction.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.dataTable').removeAttr('style');
+        });
+    </script>
+    
+    @RenderSection("Scripts", required: false)
+
+    
+</body>
+</html>

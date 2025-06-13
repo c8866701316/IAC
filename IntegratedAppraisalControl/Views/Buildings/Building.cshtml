@@ -1,0 +1,1117 @@
+﻿@model IntegratedAppraisalControl.Models.BuildingViewModel
+@{
+    ViewBag.Title = "Building Edit";
+}
+@*<div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Edit Building</h4>
+    </div>*@
+
+
+
+<div class="panel-group main" id="accordion">
+    <div class="panel panel-primary">
+        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#buildingmain">
+            <h4 class="panel-title">
+                @ViewBag.Title
+            </h4>
+        </div>
+        <div id="buildingmain" class="panel-collapse collapse in">
+            @using (Html.BeginForm("Edit", "Buildings", FormMethod.Post, new { @class = "form-horizontal", @id = "frmEdit" }))
+            {
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group col-md-12">
+                                <label for="inputEmail1" class="col-lg-4 control-label">BldgNo:</label>
+                                <div class="col-lg-8">
+                                    @Html.TextBoxFor(m => m.tblBuildingsDTO.BuildingCode, new { @class = "form-control required required2", @maxlength = "4", @placeholder = "BldgNo" })
+                                    @Html.HiddenFor(m => m.tblBuildingsDTO.BuildingId)
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="inputEmail1" class="col-lg-4 control-label">Name:</label>
+                                <div class="col-lg-8">
+                                    @Html.TextBoxFor(m => m.tblBuildingsDTO.BuildingName, new { @class = "form-control required required2", @maxlength = 75, @placeholder = "Name" })
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="inputEmail1" class="col-lg-4 control-label">Address:</label>
+                                <div class="col-lg-8">
+                                    @Html.TextBoxFor(m => m.tblBuildingsDTO.Address1, new { @class = "form-control required required2", @maxlength = 75, @placeholder = "Address" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group col-md-12">
+                                <label for="inputEmail1" class="col-lg-4 control-label">City:</label>
+                                <div class="col-lg-8">
+                                    @Html.TextBoxFor(m => m.tblBuildingsDTO.City, new { @class = "form-control required required2", @maxlength = 75, @placeholder = "City" })
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="inputEmail1" class="col-lg-4 control-label">State:</label>
+                                <div class="col-lg-8">
+                                    @Html.TextBoxFor(m => m.tblBuildingsDTO.State, new { @class = "form-control required required2", @maxlength = 4, @placeholder = "State" })
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="inputEmail1" class="col-lg-4 control-label">Zip:</label>
+                                <div class="col-lg-8">
+                                    @Html.TextBoxFor(m => m.tblBuildingsDTO.ZipCode, new { @class = "form-control required required2", @maxlength = 10, @placeholder = "ZipCode" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="col-md-12">
+                                <label for="inputEmail1" class="col-lg-8 control-label">IAC Contract No:</label>
+                                <label for="inputEmail1" class="col-lg-4 control-label">@Model.tblBuildingsDTO.ContractNo</label>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="inputEmail1" class="col-lg-8 control-label">IAC Revaluation No:</label>
+                                <label for="inputEmail1" class="col-lg-4 control-label">@Model.tblBuildingsDTO.RevaluationNo</label>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="inputEmail1" class="col-lg-8 control-label">Effective Date:</label>
+                                <label for="inputEmail1" class="col-lg-4 control-label">@Model.tblBuildingsDTO.EffectiveDate</label>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="inputEmail1" class="col-lg-8 control-label">Appraisal Date:</label>
+                                <label for="inputEmail1" class="col-lg-4 control-label">@Model.tblBuildingsDTO.AppraisalDate</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6" style="text-align:center;">
+                            <a href="#" class="lnk-m">
+                                @if (Model.listTblBuildingImagesDTO.Where(m => m.MainPhoto).FirstOrDefault() != null && !string.IsNullOrEmpty(Model.listTblBuildingImagesDTO.Where(m => m.MainPhoto).FirstOrDefault().ImageName))
+                                {
+                                    <img src="~/Images/@Model.listTblBuildingImagesDTO.Where(m => m.MainPhoto).FirstOrDefault().ImageName" onerror="this.src='@Url.Content("/Images/noimage.png")'"
+                                         class="img" style="max-height: 300px;max-width: 300px;" />
+                                }
+                                else
+                                {
+                                    <img src="~/Images/noimage.png" class="img"
+                                         style="max-height: 300px;max-width: 300px;" />
+                                }
+                            </a>
+                        </div>
+
+                        <div class="col-md-6" style="text-align:center;">
+                            <a href="#" class="lnk-m">
+                                @if (Model.listTblBuildingImagesDTO.Where(m => m.MainPict).FirstOrDefault() != null && !string.IsNullOrEmpty(Model.listTblBuildingImagesDTO.Where(m => m.MainPict).FirstOrDefault().ImageName))
+                                {
+                                    <img src="~/Images/@Model.listTblBuildingImagesDTO.Where(m => m.MainPict).FirstOrDefault().ImageName" onerror="this.src='@Url.Content("/Images/noimage.png")'"
+                                         class="img" style="max-height: 300px;max-width: 300px;" />
+                                }
+                                else
+                                {
+                                    <img src="~/Images/noimage.png"
+                                         class="img" style="max-height: 300px;max-width: 300px;" />
+                                }
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label for="inputEmail1" class="col-lg-12 control-label" style="text-align:center;">Building <br />Reproduction cost New<br />Less Exclusions</label>
+                            <label for="inputEmail1" class="col-lg-12 control-label" style="text-align:center;">@Model.tblBuildingsDTO.BuildingCrn</label>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="inputEmail1" class="col-lg-12 control-label" style="text-align:center;">Contents <br /> Reproduction cost New <br /></label>
+                            <label for="inputEmail1" class="col-lg-12 control-label" style="text-align:center;">@Model.tblBuildingsDTO.ContentsCrn</label>
+                        </div>
+                        @if (!string.IsNullOrEmpty(Model.tblBuildingsDTO.Pito) && (Model.tblBuildingsDTO.Pito).Trim() != "$0")
+                        {
+                            <div class="col-md-1">
+                                <label for="inputEmail1" class="col-lg-12 control-label" style="text-align:center;">PITO <br /> <br /></label>
+                                <label for="inputEmail1" class="col-lg-12 control-label" style="text-align:center;">@Model.tblBuildingsDTO.Pito</label>
+                            </div>
+                        }
+
+                        @if (!string.IsNullOrEmpty(Model.tblBuildingsDTO.StainedGlass) && (Model.tblBuildingsDTO.StainedGlass).Trim() != "$0")
+                        {
+                            <div class="col-md-2">
+                                <label for="inputEmail1" class="col-lg-12 control-label" style="text-align:center;">Stained Glass <br /> <br /></label>
+                                <label for="inputEmail1" class="col-lg-12 control-label" style="text-align:center;">@Model.tblBuildingsDTO.StainedGlass</label>
+                            </div>
+                        }
+
+                        <div class="col-md-3">
+                            <label for="inputEmail1" class="col-lg-12 control-label" style="text-align:center;">Grand Total<br />Reproduction cost New <br /></label>
+                            <label for="inputEmail1" class="col-lg-12 control-label" style="text-align:center;">@Model.tblBuildingsDTO.GrandTotal</label>
+                        </div>
+                    </div>
+
+                    <div class="row mt10">
+                        <div class="col-md-5">
+                            <strong><u>Building Description</u></strong>
+                            <div class="row">
+                                <label class="col-md-6">Bldg No:</label>
+                                <label class="col-md-6">@Model.tblBuildingsDTO.BuildingCode</label>
+                            </div>
+                            <div class="row">
+                                <label class="col-md-6">Occupancy:</label>
+                                <label class="col-md-6">@Model.tblBuildingsDTO.Occupancy</label>
+                            </div>
+                            <div class="row">
+                                <label class="col-md-6">Year(s) Built:</label>
+                                <label class="col-md-6">@Model.tblBuildingsDTO.YearsBuilt</label>
+                            </div>
+                            <div class="row">
+                                <label class="col-md-6">Super SQFT:</label>
+                                <label class="col-md-6">@Model.tblBuildingsDTO.SuperSqft</label>
+                            </div>
+                            <div class="row">
+                                <label class="col-md-6">Basement SQFT:</label>
+                                <label class="col-md-6">@Model.tblBuildingsDTO.BasementSqft</label>
+                            </div>
+
+                            <div class="row">
+                                <label class="col-md-6">Stories:</label>
+                                <label class="col-md-6">@Model.tblBuildingsDTO.Stories</label>
+                            </div>
+                            <div class="row">
+                                <label class="col-md-6">ISO Class:</label>
+                                <label class="col-md-6">@Model.tblBuildingsDTO.ConstructionClass</label>
+                            </div>
+                            <div class="row">
+                                <label class="col-md-6">Building Condition:</label>
+                                <label class="col-md-6">@Model.tblBuildingsDTO.Condition</label>
+                            </div>
+
+                        </div>
+                        <div class="col-md-offset-2 col-md-5">
+                            <strong><u>Additional Data</u></strong>
+
+                            @if (!string.IsNullOrWhiteSpace(Model.tblBuildingsDTO.Gpslat))
+                            {
+                                <div class="row">
+                                    <label class="col-md-6">GPS Lat:</label>
+                                    <label class="col-md-6">@Model.tblBuildingsDTO.Gpslat</label>
+                                </div>
+                            }
+
+                            @if (!string.IsNullOrWhiteSpace(Model.tblBuildingsDTO.Gpslong))
+                            {
+                                <div class="row">
+                                    <label class="col-md-6">GPS Long:</label>
+                                    <label class="col-md-6">@Model.tblBuildingsDTO.Gpslong</label>
+                                </div>
+                            }
+                            @if (!string.IsNullOrWhiteSpace(Model.tblBuildingsDTO.Sprinklers))
+                            {
+                                <div class="row">
+                                    <label class="col-md-6">Sprinklers:</label>
+                                    <label class="col-md-6">@Model.tblBuildingsDTO.Sprinklers</label>
+                                </div>
+                            }
+                            @if (!string.IsNullOrWhiteSpace(Model.tblBuildingsDTO.FloodZone))
+                            {
+
+                                <div class="row">
+                                    <label class="col-md-6">Flood Zone:</label>
+                                    <label class="col-md-6">@Model.tblBuildingsDTO.FloodZone</label>
+                                </div>
+                            }
+                            @if (!string.IsNullOrWhiteSpace(Model.tblBuildingsDTO.LocalFireAlarm))
+                            {
+                                <div class="row">
+                                    <label class="col-md-6">Local Fire Alarm:</label>
+                                    <label class="col-md-6">@Model.tblBuildingsDTO.LocalFireAlarm</label>
+                                </div>
+                            }
+                            @if (!string.IsNullOrWhiteSpace(Model.tblBuildingsDTO.SecuritySystem))
+                            {
+                                <div class="row">
+                                    <label class="col-md-6">Security Systems:</label>
+                                    <label class="col-md-6">@Model.tblBuildingsDTO.SecuritySystem</label>
+                                </div>
+                            }
+                            @if (!string.IsNullOrWhiteSpace(Model.tblBuildingsDTO.PassengerElevator))
+                            {
+                                <div class="row">
+                                    <label class="col-md-6">Passenger Elevator:</label>
+                                    <label class="col-md-6">@Model.tblBuildingsDTO.PassengerElevator</label>
+                                </div>
+                            }
+                            @if (!string.IsNullOrWhiteSpace(Model.tblBuildingsDTO.FreightElevator))
+                            {
+                                <div class="row">
+                                    <label class="col-md-6">Freight Elevator:</label>
+                                    <label class="col-md-6">@Model.tblBuildingsDTO.FreightElevator</label>
+                                </div>
+                            }
+                            @if (!string.IsNullOrWhiteSpace(Model.tblBuildingsDTO.EmergencyGenerator))
+                            {
+                                <div class="row">
+                                    <label class="col-md-6">Emergency Generator:</label>
+                                    <label class="col-md-6">@Model.tblBuildingsDTO.EmergencyGenerator</label>
+                                </div>
+                            }
+                            @if (!string.IsNullOrWhiteSpace(Model.tblBuildingsDTO.Capacity))
+                            {
+                                <div class="row">
+                                    <label class="col-md-6">Capacity:</label>
+                                    <label class="col-md-6">@Model.tblBuildingsDTO.Capacity</label>
+                                </div>
+                            }
+
+                            @if (!string.IsNullOrWhiteSpace(Model.tblBuildingsDTO.Sdf1label) && !string.IsNullOrWhiteSpace(Model.tblBuildingsDTO.Sdf1))
+                            {
+                                <div class="row">
+                                    <label class="col-md-6">@Model.tblBuildingsDTO.Sdf1label:</label>
+                                    <label class="col-md-6">@Model.tblBuildingsDTO.Sdf1</label>
+                                </div>
+                            }
+                            @if (!string.IsNullOrWhiteSpace(Model.tblBuildingsDTO.Sdf2label) && !string.IsNullOrWhiteSpace(Model.tblBuildingsDTO.Sdf2))
+                            {
+                                <div class="row">
+                                    <label class="col-md-6">@Model.tblBuildingsDTO.Sdf2label:</label>
+                                    <label class="col-md-6">@Model.tblBuildingsDTO.Sdf2</label>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="row mt10">
+                        <div class="col-md-5">
+                            <strong><u>Building Components</u></strong>
+                            <div class="row">
+                                <label class="col-md-6">Exterior Wall Type:</label>
+                                <label class="col-md-6">@Model.tblBuildingsDTO.ExteriorWallType</label>
+                            </div>
+                            <div class="row">
+                                <label class="col-md-6">Heating:</label>
+                                <label class="col-md-6">@Model.tblBuildingsDTO.Heating</label>
+                            </div>
+                            <div class="row">
+                                <label class="col-md-6">Cooling:</label>
+                                <label class="col-md-6">@Model.tblBuildingsDTO.Coolling</label>
+                            </div>
+                            <div class="row">
+                                <label class="col-md-6">Roofing Material:</label>
+                                <label class="col-md-6">@Model.tblBuildingsDTO.RoofMaterial</label>
+                            </div>
+                        </div>
+                        <div class="col-md-offset-2 col-md-5">
+                            <strong><u>Additional Feature</u></strong>
+                            <div class="row">
+                                <label class="col-md-12">@Model.tblBuildingsDTO.AdditionalFeatures</label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="panel-footer">
+                    @if (!(ViewBag.BaseReadOnly))
+                    {
+                        <div class="modal-footer">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" class="btn btn-primary" value="Save" />
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#buildingsections">
+            <h4 class="panel-title">
+                Sections
+            </h4>
+        </div>
+        <div id="buildingsections" class="panel-collapse collapse">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table id="tblBuildingSections">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Description
+                                        </th>
+                                        <th>
+                                            Percentage
+                                        </th>
+                                        <th>
+                                            YR Acq
+                                        </th>
+                                        <th>
+                                            ISO
+                                        </th>
+                                        <th>
+                                            Life
+                                        </th>
+                                        <th>
+                                            Total RCN
+                                        </th>
+                                        <th>
+                                            Historical
+                                        </th>
+                                    </tr>
+                                </thead>
+                                @*<thead class="filters">
+                                        <tr>
+                                            <td>
+                                                Description
+                                            </td>
+                                            <td>
+                                                Percentage
+                                            </td>
+                                            <td>
+                                                YR Acq
+                                            </td>
+                                            <td>
+                                                ISO
+                                            </td>
+                                            <td>
+                                                Life
+                                            </td>
+                                            <td>
+                                                Total RCN
+                                            </td>
+                                            <td>
+                                                Historical
+                                            </td>
+                                        </tr>
+                                    </thead>*@
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#buildingadditionaldatadescription">
+            <h4 class="panel-title">
+                Additional Data
+            </h4>
+        </div>
+        <div id="buildingadditionaldatadescription" class="panel-collapse collapse">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table id="tbladditionaldatadescription">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Description
+                                        </th>
+                                    </tr>
+                                </thead>
+                                @*<thead class="filters">
+                                        <tr>
+                                            <td>
+                                                Description
+                                            </td>
+                                        </tr>
+                                    </thead>*@
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#buildingImageNoPlat">
+            <h4 class="panel-title">
+                Images
+            </h4>
+        </div>
+        <div id="buildingImageNoPlat" class="panel-collapse collapse">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table dataTable">
+                                @*
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Description
+                                            </th>
+                                        </tr>
+                                    </thead>*@
+                                <tbody>
+                                    @if ((Model.listTblBuildingImagesDTO != null) && Model.listTblBuildingImagesDTO.Where(m => m.Plat == false).Count() > 0)
+                                    {
+                                        foreach (var img in Model.listTblBuildingImagesDTO.Where(m => m.Plat == false).ToList())
+                                        {
+                                            <tr data-imgsrc="/Images/@img.ImageName" class="dblClck">
+                                                <td>@img.ImageDescription</td>
+                                            </tr>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <tr>No records found.</tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#buildingImagePlat">
+            <h4 class="panel-title">
+                Plat
+            </h4>
+        </div>
+        <div id="buildingImagePlat" class="panel-collapse collapse">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table dataTable">
+                                @*
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Description
+                                            </th>
+                                        </tr>
+                                    </thead>*@
+                                <tbody>
+                                    @if ((Model.listTblBuildingImagesDTO != null) && Model.listTblBuildingImagesDTO.Where(m => m.Plat == true).Count() > 0)
+                                    {
+                                        foreach (var img in Model.listTblBuildingImagesDTO.Where(m => m.Plat == true).ToList())
+                                        {
+                                            <tr data-imgsrc="/Images/@img.ImageName" class="dblClck">
+                                                <td>@img.ImageDescription</td>
+                                            </tr>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <tr>No records found.</tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-primary">
+        @*<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#buildingChanges">
+                <h4 class="panel-title">
+                    Building Changes
+                </h4>
+            </div>*@
+        <div class="panel-heading">
+            @if (!(ViewBag.BaseReadOnly))
+            {
+                <div class="btn-group pull-right">
+                    <button class="btn btn-sm btn-default pull-right clsChangeMaintance" data-changetype="change">&nbsp; Add</button>
+                </div>
+            }
+            <h4 class="panel-title" data-toggle="collapse" data-parent="#accordion" href="#buildingChanges">
+                Building Changes
+            </h4>
+        </div>
+
+
+        <div id="buildingChanges" class="panel-collapse collapse">
+            <div class="panel-body">
+                @*<div class="row">
+                        <div class="col-md-12 form-group">
+                            <button class="btn btn-primary pull-right clsChangeMaintance" data-changetype="change" data-toggle="modal" data-target="#myBuildingChangeMaintanance">Add</button>
+                        </div>
+                    </div>*@
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table" id="tblBuildingChanges">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Change Type
+                                        </th>
+                                        <th>
+                                            Description
+                                        </th>
+                                        <th>
+                                            Month Acq
+                                        </th>
+                                        <th>
+                                            Year Acq
+                                        </th>
+                                        <th>
+                                            Cost
+                                        </th>
+                                        <th>
+                                            Edit
+                                        </th>
+                                        <th>
+                                            Delete
+                                        </th>
+                                    </tr>
+                                </thead>
+                                @*<thead class="filters">
+                                        <tr>
+                                            <td>
+                                                Change Type
+                                            </td>
+                                            <td>
+                                                Description
+                                            </td>
+                                            <td>
+                                                Month Acq
+                                            </td>
+                                            <td>
+                                                Year Acq
+                                            </td>
+                                            <td>
+                                                Cost
+                                            </td>
+                                            <th>
+                                                Edit
+                                            </th>
+                                        </tr>
+                                    </thead>*@
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-primary">
+        @*<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#buildingMaintenance">
+                <h4 class="panel-title">
+                    Building Maintenance
+                </h4>
+            </div>*@
+
+        <div class="panel-heading">
+            @if (!(ViewBag.BaseReadOnly))
+            {
+                <div class="btn-group pull-right">
+                    <button class="btn btn-sm btn-default pull-right clsChangeMaintance" data-changetype="maintance" data-toggle="modal" data-target="#myBuildingChangeMaintanance">&nbsp; Add</button>
+                </div>
+            }
+            <h4 class="panel-title" data-toggle="collapse" data-parent="#accordion" href="#buildingMaintenance">
+                Building Maintenance
+            </h4>
+        </div>
+
+        <div id="buildingMaintenance" class="panel-collapse collapse">
+            <div class="panel-body">
+
+                @*<div class="row">
+                        <div class="col-md-12 form-group">
+                            <button class="btn btn-primary pull-right clsChangeMaintance" data-changetype="maintance" data-toggle="modal" data-target="#myBuildingChangeMaintanance">Add</button>
+                        </div>
+                    </div>*@
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table" id="tblBuildingMaintenance">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Change Type
+                                        </th>
+                                        <th>
+                                            Description
+                                        </th>
+                                        <th>
+                                            Month Acq
+                                        </th>
+                                        <th>
+                                            Year Acq
+                                        </th>
+                                        <th>
+                                            Cost
+                                        </th>
+                                        <th>
+                                            Edit
+                                        </th>
+                                        <th>
+                                            Delete
+                                        </th>
+                                    </tr>
+                                </thead>
+                                @*<thead class="filters">
+                                        <tr>
+                                            <td>
+                                                Change Type
+                                            </td>
+                                            <td>
+                                                Description
+                                            </td>
+                                            <td>
+                                                Month Acq
+                                            </td>
+                                            <td>
+                                                Year Acq
+                                            </td>
+                                            <td>
+                                                Cost
+                                            </td>
+                                            <th>
+                                                Edit
+                                            </th>
+                                        </tr>
+                                    </thead>*@
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div id="modalImage" class="modal fade" style="font-size:12px;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Image View</h4>
+            </div>
+            <div class="modal-body">
+                <div id="imagediv">
+                    <img src="#" height="200" style="position:relative; left: 50%; top: 50%; " width="200" id="image" />
+                </div>
+            </div>
+            <div class="modal-footer">
+
+                <input type="button" id="btnPrint" onclick="return print();" value="Print" />
+                <input type="button" value="-" onclick="zoom(0.9)" />
+                <input type="button" value="+" onclick="zoom(1.1)" />
+                <input type="button" value="Rotate" onclick="return rotate();" />
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myBuildingChangeMaintanance" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="myBuildingChangeMaintananceHeader">
+                    Building Change
+                </h4>
+            </div>
+            <!-- Modal Body -->
+            <div class="modal-body" id="bodyChangeMaintanance">
+                <form class="" action="@Url.Action("AddChange","Buildings")" id="frnChangesMaintanance">
+                    <div class="form-group">
+                        <label for="ddlChangeType">Change Type</label>
+                        @Html.DropDownList("ddlChangeType", new SelectList(Model.lstChangesTypeDTO, "ChangeTypeId", "ChangeType"), "", new { placeholder = "changeType", @class = "form-control " })
+                        @Html.Hidden("ChangeType")
+                    </div>
+                    <div class="form-group">
+                        <label for="txtDescription">Description</label>
+                        <textarea class="form-control" id="txtDescription" rows="10"></textarea>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="" for="txtMonthAcquired">Month Acquired</label>
+                                <input class="form-control input-sm" id="txtMonthAcquired" type="text">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="" for="txtYearAcquired">Year Acquired</label>
+                                <input class="form-control input-sm" id="txtYearAcquired" type="text">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="">Cost</label>
+                                <input class="form-control input-sm" id="txtCost" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" id="AddChange">
+                                Save
+                            </button>
+                            <button type="button" class="btn btn-default"
+                                    data-dismiss="modal">
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- Modal Footer -->
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+<script type="text/javascript">
+
+        $("#frmEdit").submit(function (e) {
+            e.preventDefault(); // avoid to execute the actual submit of the form.
+
+            if ($("#frmEdit").valid()) {
+
+                var form = $(this);
+                var url = form.attr('action');
+
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: form.serialize(), // serializes the form's elements.
+                    dataType: "json",
+                    success: function (responseData) {
+
+                        alert(responseData.Message);
+                    },
+                    error: function () {
+                        alert('There is some issue please try again after some time.')
+                    }
+                });
+            }
+    });
+
+    $('.clsChangeMaintance').click(function () {
+        var ChangeType = $(this).data("changetype");
+        var url =''
+
+        if (ChangeType == 'change')
+        {
+            $('#myBuildingChangeMaintananceHeader').html('Building Change');
+            url = '@Url.Action("_BuildingChange", "Buildings",new { BuildingId = Model.tblBuildingsDTO.BuildingId })' + '&Id=0';
+        }
+        else
+        {
+
+            $('#myBuildingChangeMaintananceHeader').html('Building Maintanance');
+            url = '@Url.Action("_BuildingMaintanance", "Buildings", new { BuildingId = Model.tblBuildingsDTO.BuildingId })' + '&Id=0';
+        }
+        loadChageOrMaintanance(url);
+    });
+
+        function loadChageOrMaintanance(url)
+        {
+            $.ajax({
+                type: "GET",
+                url: url,
+                success: function (responseData) {
+
+                    $('#bodyChangeMaintanance').html(responseData);
+                    $('#myBuildingChangeMaintanance').modal('show');
+                    fnFormvalidate("frnChangesMaintanance");
+
+                },
+                error: function () {
+                    alert('There is some issue please try again after some time.')
+                }
+            });
+        }
+
+        $(document).on('click', '#AddChange', function (e) {
+            e.preventDefault();
+            var form = $('#frnChangesMaintanance');
+
+
+            if (!form.valid()) {
+                return;
+            }
+
+            var url = form.attr('action');
+            var data = form.serialize();
+
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: data, // serializes the form's elements.
+                dataType: "json",
+                success: function (responseData) {
+                    alert(responseData.Message);
+                    if (responseData.Status) {
+                        initBuildingChanges();
+                        initBuildingMaintenance();
+                        clearChangeMaintananceForm();
+                        $('#myBuildingChangeMaintanance').modal('hide');
+                    }
+                },
+                error: function () {
+                    alert('There is some issue please try again after some time.')
+                }
+            });
+        });
+
+    function clearChangeMaintananceForm() {
+        $('#frnChangesMaintanance').trigger("reset");
+    }
+
+    function initBuildinSections() {
+        var columns = [
+            { data: "SectionDesc" },
+            { data: "PercentOf" },
+            { data: "Yracq" },
+            { data: "Isoclass" },
+            { data: "Life" },
+            { data: "TotalCost" },
+            { data: "HistoricalCost" }
+        ];
+    /**/
+    /**/
+        InitializeDatatable('tblBuildingSections',
+            '@Url.Action("BuildingSectionPricingList", "Buildings", new { BuildingId = Model.tblBuildingsDTO.BuildingId })',
+            columns,
+            [],
+            @ViewBag.BasePageSize)
+    /**/
+    /**/
+}
+
+function initAdditionalDataDescriptionTable() {
+    var columns = [{ data: "AdditionalDataDescription" }];
+    /**/
+    /**/
+    InitializeDatatable('tbladditionaldatadescription',
+        '@Url.Action("BuildingAdditionalDataDescriptionList", "Buildings", new { BuildingId = Model.tblBuildingsDTO.BuildingId })',
+        columns,
+        [],
+        @ViewBag.BasePageSize,
+        false,
+        false,
+        false,
+    )
+    /**/
+    /**/
+}
+
+
+        function initBuildingChanges() {
+            var columns = [
+                { data: "ChangeType" },
+                { data: "Description" },
+                { data: "MonthAcq" },
+                { data: "YearAcq" },
+                { data: "Cost" },
+                { data: "BuildingChangesId" }
+            ];
+            $.ajax({
+                url: '@Url.Action("BuildingChangesList", "Buildings", new { BuildingId = Model.tblBuildingsDTO.BuildingId })',
+                type: 'GET',
+                dataType: "json",
+                success: function (response) {
+
+                    //if (response.data.length > 0)
+                    //{
+                        if ($.fn.DataTable.isDataTable('#tblBuildingChanges')) {
+
+                            $('#tblBuildingChanges').DataTable().destroy();
+                        }
+                        var table = $('#tblBuildingChanges').DataTable({
+                            data: response.data,
+                            columns: columns,
+                            destroy: true,
+                            "autoWidth": false,
+                            "aLengthMenu": [
+                                [5, 10, 15, 20, -1],
+                                [5, 10, 15, 20, "All"]
+                                ],
+                                "bPaginate": false,
+                                "bInfo": false,
+                                "columnDefs": [
+                                    {
+                                        "targets": 5,
+                                        "visible": false
+                                    },
+                                    {
+                                        "mRender": function (data, type, row) {
+                                            var html = '<button  class="btn btn-sm btn-danger clsDeleteBuildingChanges" data-buildingchangesid=' + row.BuildingChangesId + '>Delete</button>';
+                                            return html;
+                                        },
+                                        "targets": 6,
+                                        "visible": true
+                                    },
+                            ],
+                            "drawCallback": function (settings) {
+                                var api = this.api();
+                                $("#tblBuildingChanges tbody tr").dblclick(function (){
+                                    var url = '@Url.Action("_BuildingChange", "Buildings",new { BuildingId = Model.tblBuildingsDTO.BuildingId })' + '&Id=' + table.row(this).data().BuildingChangesId;
+                                    loadChageOrMaintanance(url);
+                                });
+                            }
+                        })
+                },
+                error: function (req, status, error) {
+                    alert('There is some issue with server. Please try again later.');
+                }
+        });
+    }
+
+        function initBuildingMaintenance() {
+            var columns = [
+                { data: "ChangeType" },
+                { data: "Description" },
+                { data: "MonthAcq" },
+                { data: "YearAcq" },
+                { data: "Cost" },
+                { data: "BuildingMaintenanceId" }
+            ];
+            $.ajax({
+                url: '@Url.Action("BuildingMaintananceList","Buildings",new { BuildingId = Model.tblBuildingsDTO.BuildingId })',
+                type: 'GET',
+                dataType: "json",
+                success: function (response) {
+
+                    //if (response.data.length > 0)
+                    //{
+                        var table = $('#tblBuildingMaintenance').DataTable({
+                            data: response.data,
+                            columns: columns,
+                            destroy: true,
+                            "autoWidth": false,
+                            "aLengthMenu": [
+                                [5, 10, 15, 20, -1],
+                                [5, 10, 15, 20, "All"]
+                                ],
+                                "bPaginate": false,
+                                "bInfo": false,
+                                "columnDefs": [
+                                    {
+                                        "targets": 5,
+                                        "visible":false
+                                    },
+                                    {
+                                        "mRender": function (data, type, row) {
+                                            var html = '<button  class="btn btn-sm btn-danger clsDeleteBuildingMaintanance" data-buildingmaintananceid=' + row.BuildingMaintenanceId + '>Delete</button>';
+                                            return html;
+                                        },
+                                        "targets": 6,
+                                        "visible": true
+                                    },
+
+                            ],
+                            "drawCallback": function (settings) {
+                                var api = this.api();
+                                $("#tblBuildingMaintenance tbody tr").dblclick(function () {
+                                    var url = '@Url.Action("_BuildingMaintanance", "Buildings",new { BuildingId = Model.tblBuildingsDTO.BuildingId })' + '&Id=' + table.row(this).data().BuildingMaintenanceId;
+                                    loadChageOrMaintanance(url);
+                                });
+                            }
+                        })
+                        //$('#tblBuildingMaintenance tbody').on('dblclick', 'tr', function () {
+                        //    var url = 'Url.Action("_BuildingMaintanance", "Buildings",new { BuildingId = Model.tblBuildingsDTO.BuildingId })' + '&Id=' + table.row(this).data().BuildingMaintenanceId;
+                        //    loadChageOrMaintanance(url);
+                        //});
+                    //}
+                },
+                error: function (req, status, error) {
+                    alert('There is some issue with server. Please try again later.');
+                }
+        });
+    }
+
+        function DeleteBuildingChanges(BuildingChangesId)
+        {
+            $.ajax({
+                url: '@Url.Action("DeleteBuildingChanges", "Buildings")',
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    BuildingChangesId: BuildingChangesId
+                },
+                success: function (result) {
+                    console.log(result);
+                    alert(result.Message);
+                    if (result.Status) {
+                        //alert('delete ' + UserId);
+                        initBuildingChanges();
+                    }
+                },
+                error: function () {
+                    alert('There is some issue, Please try again after some time.')
+                }
+            });
+        }
+        function DeleteBuildingMaintanance(BuildingMaintenanceId)
+        {
+            $.ajax({
+                url: '@Url.Action("DeleteBuildingMaintanance", "Buildings")',
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    BuildingMaintenanceId: BuildingMaintenanceId
+                },
+                success: function (result) {
+                    console.log(result);
+                    alert(result.Message);
+                    if (result.Status) {
+                        //alert('delete ' + UserId);
+                        initBuildingMaintenance();
+                    }
+                },
+                error: function () {
+                    alert('There is some issue, Please try again after some time.')
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            initBuildinSections();
+            initAdditionalDataDescriptionTable();
+            initBuildingChanges();
+            initBuildingMaintenance();
+            $("body").imageBox();
+
+            $('.lnk-m').on('click', function () {
+                $('#img-preview img').attr('src', $(this).find("img").attr("src"));
+                $('#unbind-pos').modal('show');
+            });
+
+            $(".dblClck").on('dblclick', function () {
+                var src = $(this).data("imgsrc");
+                $('#img-preview img').attr('src', src);
+                $('#unbind-pos').modal('show');
+            });
+
+            $(document).on('click', '.clsDeleteBuildingChanges', function () {
+                DeleteBuildingChanges($(this).data('buildingchangesid'));
+            });
+
+            $(document).on('click', '.clsDeleteBuildingMaintanance', function () {
+                DeleteBuildingMaintanance($(this).data('buildingmaintananceid'));
+            });
+
+            fnFormvalidate("frmEdit");
+        });
+
+</script>
+}

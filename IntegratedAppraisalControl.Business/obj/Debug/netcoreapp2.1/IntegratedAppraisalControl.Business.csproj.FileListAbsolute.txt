@@ -1,0 +1,57 @@
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.deps.json
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.dll
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.pdb
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Data.dll
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Models.dll
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Data.pdb
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Models.pdb
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.csprojAssemblyReference.cache
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.csproj.CoreCompileInputs.cache
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.AssemblyInfoInputs.cache
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.AssemblyInfo.cs
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.csproj.CopyComplete
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.dll
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.pdb
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.deps.json
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.dll
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.pdb
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Data.dll
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Models.dll
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Data.pdb
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Models.pdb
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.csprojAssemblyReference.cache
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.csproj.CoreCompileInputs.cache
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.AssemblyInfoInputs.cache
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.AssemblyInfo.cs
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.csproj.CopyComplete
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.dll
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.pdb
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.deps.json
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.dll
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.pdb
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Data.dll
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Models.dll
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Data.pdb
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Models.pdb
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.csprojAssemblyReference.cache
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.csproj.CoreCompileInputs.cache
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.AssemblyInfoInputs.cache
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.AssemblyInfo.cs
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.csproj.CopyComplete
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.dll
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.pdb
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.deps.json
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.dll
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.pdb
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Data.dll
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Models.dll
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Data.pdb
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl.Business\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Models.pdb
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.csproj.AssemblyReference.cache
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.GeneratedMSBuildEditorConfig.editorconfig
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.AssemblyInfoInputs.cache
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.AssemblyInfo.cs
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.csproj.CoreCompileInputs.cache
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Debug\netcoreapp2.1\Integrat.50A421E4.Up2Date
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.dll
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl.Business\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.pdb

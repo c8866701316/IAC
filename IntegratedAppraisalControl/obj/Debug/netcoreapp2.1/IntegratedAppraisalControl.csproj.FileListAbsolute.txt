@@ -1,0 +1,247 @@
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.deps.json
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.runtimeconfig.json
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.runtimeconfig.dev.json
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.dll
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.pdb
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Views.dll
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Views.pdb
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.dll
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Data.dll
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Models.dll
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.pdb
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Data.pdb
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Models.pdb
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.csprojAssemblyReference.cache
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.csproj.CoreCompileInputs.cache
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.RazorAssemblyInfo.cache
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.RazorAssemblyInfo.cs
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.AssemblyInfoInputs.cache
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.AssemblyInfo.cs
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.TagHelpers.input.cache
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.TagHelpers.output.cache
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.RazorCoreGenerate.cache
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Account\Login.g.cshtml.cs
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Buildings\Building.g.cshtml.cs
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Buildings\Index.g.cshtml.cs
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\CertifiedReport\Index.g.cshtml.cs
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Department\Index.g.cshtml.cs
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Department\_Department.g.cshtml.cs
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.g.cshtml.cs
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Home\ClientSelection.g.cshtml.cs
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Home\Contact.g.cshtml.cs
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.g.cshtml.cs
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Inventory\Edit.g.cshtml.cs
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Inventory\Index.g.cshtml.cs
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Rooms\Index.g.cshtml.cs
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Rooms\_Room.g.cshtml.cs
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Shared\AccessDenied.g.cshtml.cs
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_headerMenu.g.cshtml.cs
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.g.cshtml.cs
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_LoginPartial.g.cshtml.cs
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Users\Index.g.cshtml.cs
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Users\_User.g.cshtml.cs
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.g.cshtml.cs
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\_ViewStart.g.cshtml.cs
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.RazorTargetAssemblyInfo.cache
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.RazorTargetAssemblyInfo.cs
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.Views.pdb
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.csproj.CopyComplete
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.dll
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.pdb
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Inventory\_AddEditInventoryMaintenance.g.cshtml.cs
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Buildings\_BuildingChange.g.cshtml.cs
+E:\Cluster Softech\Fivver\Chris Kuntz\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Buildings\_BuildingMaintanance.g.cshtml.cs
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.deps.json
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.runtimeconfig.json
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.runtimeconfig.dev.json
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.dll
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.pdb
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Views.dll
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Views.pdb
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.dll
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Data.dll
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Models.dll
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.pdb
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Data.pdb
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Models.pdb
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.csprojAssemblyReference.cache
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.csproj.CoreCompileInputs.cache
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.RazorAssemblyInfo.cache
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.RazorAssemblyInfo.cs
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.AssemblyInfoInputs.cache
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.AssemblyInfo.cs
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.TagHelpers.input.cache
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.TagHelpers.output.cache
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.RazorCoreGenerate.cache
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Account\Login.g.cshtml.cs
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Buildings\Building.g.cshtml.cs
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Buildings\Index.g.cshtml.cs
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Buildings\_BuildingChange.g.cshtml.cs
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Buildings\_BuildingMaintanance.g.cshtml.cs
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\CertifiedReport\Index.g.cshtml.cs
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Department\Index.g.cshtml.cs
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Department\_Department.g.cshtml.cs
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.g.cshtml.cs
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Home\ClientSelection.g.cshtml.cs
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Home\Contact.g.cshtml.cs
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.g.cshtml.cs
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Inventory\Edit.g.cshtml.cs
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Inventory\Index.g.cshtml.cs
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Inventory\_AddEditInventoryMaintenance.g.cshtml.cs
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Index.g.cshtml.cs
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Rooms\Index.g.cshtml.cs
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Rooms\_Room.g.cshtml.cs
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Shared\AccessDenied.g.cshtml.cs
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_headerMenu.g.cshtml.cs
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.g.cshtml.cs
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_LoginPartial.g.cshtml.cs
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Transaction\Index.g.cshtml.cs
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Users\Index.g.cshtml.cs
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Users\_User.g.cshtml.cs
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.g.cshtml.cs
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\_ViewStart.g.cshtml.cs
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.RazorTargetAssemblyInfo.cache
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.RazorTargetAssemblyInfo.cs
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.Views.pdb
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.csproj.CopyComplete
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.dll
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.pdb
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Location\Index.g.cshtml.cs
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Location\_AddEdit.g.cshtml.cs
+E:\Paresh\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Location\Edit.g.cshtml.cs
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.deps.json
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.runtimeconfig.json
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.runtimeconfig.dev.json
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.dll
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.pdb
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Views.dll
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Views.pdb
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.dll
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Data.dll
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Models.dll
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.pdb
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Data.pdb
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Models.pdb
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.csprojAssemblyReference.cache
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.csproj.CoreCompileInputs.cache
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.RazorAssemblyInfo.cache
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.RazorAssemblyInfo.cs
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.AssemblyInfoInputs.cache
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.AssemblyInfo.cs
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.TagHelpers.input.cache
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.TagHelpers.output.cache
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.RazorCoreGenerate.cache
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Account\Login.g.cshtml.cs
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Buildings\Building.g.cshtml.cs
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Buildings\Index.g.cshtml.cs
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Buildings\_BuildingChange.g.cshtml.cs
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Buildings\_BuildingMaintanance.g.cshtml.cs
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\CertifiedReport\Index.g.cshtml.cs
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Department\Index.g.cshtml.cs
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Department\_Department.g.cshtml.cs
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.g.cshtml.cs
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Home\ClientSelection.g.cshtml.cs
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Home\Contact.g.cshtml.cs
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.g.cshtml.cs
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Inventory\Edit.g.cshtml.cs
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Inventory\Index.g.cshtml.cs
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Inventory\_AddEditInventoryMaintenance.g.cshtml.cs
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Location\Edit.g.cshtml.cs
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Location\Index.g.cshtml.cs
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Location\_AddEdit.g.cshtml.cs
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Index.g.cshtml.cs
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Rooms\Index.g.cshtml.cs
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Rooms\_Room.g.cshtml.cs
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Shared\AccessDenied.g.cshtml.cs
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_headerMenu.g.cshtml.cs
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.g.cshtml.cs
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_LoginPartial.g.cshtml.cs
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Transaction\Index.g.cshtml.cs
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Users\Index.g.cshtml.cs
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Users\_User.g.cshtml.cs
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.g.cshtml.cs
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\_ViewStart.g.cshtml.cs
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.RazorTargetAssemblyInfo.cache
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.RazorTargetAssemblyInfo.cs
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.Views.pdb
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.csproj.CopyComplete
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.dll
+E:\Devangi\IAC\IcaHomeValuation 24 Jan 2019\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.pdb
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\appsettings.Development.json
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\appsettings.json
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.deps.json
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.runtimeconfig.json
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.runtimeconfig.dev.json
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.dll
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.pdb
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Views.dll
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Views.pdb
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.dll
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Data.dll
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Models.dll
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Business.pdb
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Data.pdb
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\bin\Debug\netcoreapp2.1\IntegratedAppraisalControl.Models.pdb
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.csproj.AssemblyReference.cache
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.GeneratedMSBuildEditorConfig.editorconfig
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.AssemblyInfoInputs.cache
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.AssemblyInfo.cs
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.csproj.CoreCompileInputs.cache
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.RazorAssemblyInfo.cache
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.RazorAssemblyInfo.cs
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.TagHelpers.input.cache
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.TagHelpers.output.cache
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.RazorCoreGenerate.cache
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Account\Login.cshtml.g.cs
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Buildings\Building.cshtml.g.cs
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Buildings\Index.cshtml.g.cs
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Buildings\_BuildingChange.cshtml.g.cs
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Buildings\_BuildingMaintanance.cshtml.g.cs
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\CertifiedReport\Index.cshtml.g.cs
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Department\Index.cshtml.g.cs
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Department\_Department.cshtml.g.cs
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.cshtml.g.cs
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Home\ClientSelection.cshtml.g.cs
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Home\Contact.cshtml.g.cs
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.cshtml.g.cs
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.cshtml.g.cs
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Inventory\Edit.cshtml.g.cs
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Inventory\Index.cshtml.g.cs
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Inventory\_AddEditInventoryMaintenance.cshtml.g.cs
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Location\Edit.cshtml.g.cs
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Location\Index.cshtml.g.cs
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Location\_AddEdit.cshtml.g.cs
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Index.cshtml.g.cs
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Rooms\Index.cshtml.g.cs
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Rooms\_Room.cshtml.g.cs
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Shared\AccessDenied.cshtml.g.cs
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.cshtml.g.cs
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.cshtml.g.cs
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_headerMenu.cshtml.g.cs
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Transaction\Index.cshtml.g.cs
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Users\Index.cshtml.g.cs
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\Users\_User.cshtml.g.cs
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.cshtml.g.cs
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Razor\Views\_ViewStart.cshtml.g.cs
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.RazorTargetAssemblyInfo.cache
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.RazorTargetAssemblyInfo.cs
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.Views.pdb
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\Integrat.1A6EFB7A.Up2Date
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.dll
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.pdb
+D:\Source Code\Source Code\IcaHomeValuation\IntegratedAppraisalControl\obj\Debug\netcoreapp2.1\IntegratedAppraisalControl.genruntimeconfig.cache

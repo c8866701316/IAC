@@ -1,0 +1,455 @@
+﻿@{
+    ViewBag.Title = "Reports";
+
+    List<SelectListItem> listYear = new List<SelectListItem>();
+    @for (var i = 0; i < 9; i++)
+    {
+        int ClientAccYear = Convert.ToInt32(@ViewBag.ClientAccYear) + Convert.ToInt32(@i);
+
+        listYear.Add(new SelectListItem { Text = @ClientAccYear.ToString(), Value = @ClientAccYear.ToString() });
+
+    }
+    var clientyear = @ViewBag.ClientAccYear;
+
+
+}
+<div class="panel-group main" id="accordion">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h4 data-toggle="collapse" data-parent="#accordion" href="#panelAssetGrid">
+                Assets
+            </h4>
+        </div>
+        <div id="panelAssetGrid" class="panel-collapse collapse in">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table id="tblAssets">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Asset Class Code
+                                        </th>
+                                        <th>
+                                            Asst Class Name
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h4 data-toggle="collapse" data-parent="#accordion" href="#panelDepartment">
+                Department
+            </h4>
+        </div>
+        <div id="panelDepartment" class="panel-collapse collapse in">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table id="tblDepartment">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Department Code
+                                        </th>
+                                        <th>
+                                            Department Desc
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h4 data-toggle="collapse" data-parent="#accordion" href="#panelRooms">
+                Rooms
+            </h4>
+        </div>
+        <div id="panelRooms" class="panel-collapse collapse in">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table id="tblRooms">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Room Code
+                                        </th>
+                                        <th>
+                                            Building Code
+                                        </th>
+                                        <th>
+                                            Room Desc
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h4 data-toggle="collapse" data-parent="#accordion" href="#panelProjections">
+                Projections
+            </h4>
+            <div class="row col-md-12" style="margin-top: -26px;">
+                <div class="col-md-9">
+
+                </div>
+                <div class="col-md-3 right">
+                    @Html.DropDownList("ddlYear", new SelectList(listYear, "Value", "Text", clientyear), new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div id="panelProjections" class="panel-collapse collapse in">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive pre-scrollable">
+                            <table id="tblProjections">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Tag No
+                                        </th>
+                                        <th>
+                                            Building No
+                                        </th>
+                                        <th>
+                                            Department Code
+                                        </th>
+                                        <th>
+                                            Floor
+                                        </th>
+                                        <th>
+                                            Room Code
+                                        </th>
+                                        <th>
+                                            AssetClass Code
+                                        </th>
+                                        <th>
+                                            Qty
+                                        </th>
+                                        <th>
+                                            Description
+                                        </th>
+                                        <th>
+                                            Month
+                                        </th>
+                                        <th>
+                                            Year
+                                        </th>
+                                        <th>
+                                            Replacement Value
+                                        </th>
+                                        <th>
+                                            Acq Cost
+                                        </th>
+                                        <th>
+                                            Salvage Value
+                                        </th>
+                                        <th>
+                                            Accumulated Depreciation
+                                        </th>
+                                        <th>
+                                            Current Depreciation
+                                        </th>
+                                        <th>
+                                            Underappreciated Value
+                                        </th>
+                                        <th>
+                                            PO
+                                        </th>
+                                        <th>
+                                            Fund
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script type="text/javascript">
+
+        function LoadBuildingList() {
+            $.ajax({
+                url: '@Url.Action("GetReportsData", "Reports")',
+                type: 'GET',
+                dataType: "json",
+                success: function (response) {
+
+                    var tableAssets = $('#tblAssets').DataTable({
+                        data: response.lstAssetClass,
+                        columns: [
+                            { data: "ClassCode" },
+                            { data: "AssetClassName" }
+                        ],
+                        destroy: true,
+                        dom: 'Bfrtip',
+                        "bInfo": false,
+                        buttons: [
+                            {
+                                extend: 'csvHtml5',
+                                title: 'Assets csv',
+                                className: 'btn btn-primary',
+                                exportOptions: {
+                                    columns: [0, 1]
+                                }
+                            },
+                            {
+                                extend: 'excelHtml5',
+                                title: 'Assets excel',
+                                className: 'btn btn-primary',
+                                exportOptions: {
+                                    columns: [0, 1]
+                                }
+                            }
+                        ],
+                        "iDisplayLength": @ViewBag.BasePageSize,
+                    });
+
+                    var tableDepartment = $('#tblDepartment').DataTable({
+                        data: response.DepartmentList,
+                        columns: [
+                            { data: "DepartmentCode" },
+                            { data: "DepartmentName" }
+                        ],
+                        destroy: true,
+                        dom: 'Bfrtip',
+                        "bInfo": false,
+                        buttons: [
+                            {
+                                extend: 'csvHtml5',
+                                title: 'Department csv',
+                                className: 'btn btn-primary',
+                                exportOptions: {
+                                    columns: [0, 1]
+                                }
+                            },
+                            {
+                                extend: 'excelHtml5',
+                                title: 'Department excel',
+                                className: 'btn btn-primary',
+                                exportOptions: {
+                                    columns: [0, 1]
+                                }
+                            }
+                        ],
+                        "iDisplayLength": @ViewBag.BasePageSize,
+                    });
+
+                    var tableRooms = $('#tblRooms').DataTable({
+                        data: response.RoomList,
+                        columns: [
+                            { data: "RoomCode" },
+                            { data: "BuildingCode" },
+                            { data: "RoomDescription" }
+                        ],
+                        destroy: true,
+                        dom: 'Bfrtip',
+                        "bInfo": false,
+                        buttons: [
+                            {
+                                extend: 'csvHtml5',
+                                title: 'Rooms csv',
+                                className: 'btn btn-primary',
+                                exportOptions: {
+                                    columns: [0, 1, 2]
+                                }
+                            },
+                            {
+                                extend: 'excelHtml5',
+                                title: 'Rooms excel',
+                                className: 'btn btn-primary',
+                                exportOptions: {
+                                    columns: [0, 1, 2]
+                                }
+                            }
+                        ],
+                        "iDisplayLength": @ViewBag.BasePageSize,
+                    });
+                },
+                error: function (req, status, error) {
+                    alert('There is some issue with server. Please try again later.');
+                }
+        });
+    }
+
+    function clearFormData() {
+        $('#txtBldngNo').val('');
+        $('#txtName').val('');
+        $('#txtAddress1').val('');
+        $('#txtAddress2').val('');
+        $('#txtCity').val('');
+        $('#txtState').val('');
+        $('#txtZipCode').val('');
+        $('#txtYearAcquired').val('');
+        $('#txtMonthAcquired').val('');
+        $('#txtCost').val('');
+    }
+
+        $('#btnAddBuilding').click(function ()
+        {
+
+            var form = $('#frnAddBuilding');
+            var url = form.attr('action');
+
+            var data = {
+                BuildingCode: $('#txtBldngNo').val(),
+                BuildingName: $('#txtName').val(),
+                Address1: $('#txtAddress1').val(),
+                Address2: $('#txtAddress2').val(),
+                City: $('#txtCity').val(),
+                State: $('#txtState').val(),
+                ZipCode: $('#txtZipCode').val(),
+                YearAcq: $('#txtYearAcquired').val(),
+                MonthAcq: $('#txtMonthAcquired').val(),
+                Cost: $('#txtCost').val()
+            }
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: data, // serializes the form's elements.
+                dataType: "json",
+                success: function (responseData) {
+                    alert(responseData.Message);
+                    if (responseData.Status) {
+                        LoadBuildingList();
+                        clearFormData();
+                        $('#modalAddBuilding').modal('hide');
+                    }
+                },
+                error: function () {
+                    alert('There is some issue please try again after some time.')
+                }
+            });
+
+        });
+
+        LoadBuildingList();
+        bindInventoryReport();
+
+        function bindInventoryReport(year) {
+            $.ajax({
+                    url: '@Url.Action("GetReportsDataForInventoryDetails", "Reports")',
+                    type: 'GET',
+                    contentType: 'application/json; charset=utf-8',
+                    data: { ClientYear: year },
+                    dataType: "json",
+                    success: function (response) {
+                        var tableProjections = $('#tblProjections').DataTable({
+                            data: response.ProjectionsList,
+                            columns: [
+                                { data: "Tag" },//0
+                                { data: "BuildingCode" },
+                                { data: "DepartmentCode" },
+                                { data: "Floor" },
+                                { data: "RoomCode" },
+                                { data: "AssetClassCode" },
+                                { data: "Qty" },
+                                { data: "Descr" },
+                                { data: "Month" },
+                                { data: "Year" },
+                                { data: "ReplacementValue" },
+                                { data: "AcqCost" },
+                                { data: "Fund" },
+                                { data: "deps" }, //Accumulated 13
+                                { data: "deps" },//CurrentDepreciation 14
+                                { data: "deps" },//UnderappreciatedValue 15
+                                { data: "SalvageValue" },//Salvage
+                                { data: "PO" }
+                            ],
+                            destroy: true,
+                            dom: 'Bfrtip',
+                            "bInfo": false,
+                            buttons: [
+                                {
+                                    extend: 'csvHtml5',
+                                    title: 'Projections csv',
+                                    className: 'btn btn-primary',
+                                },
+                                {
+                                    extend: 'excelHtml5',
+                                    title: 'Projections excel',
+                                    className: 'btn btn-primary',
+
+                                }
+                            ],
+                            "columnDefs": [
+                                 {
+                                     "mRender": function (data, type, row)
+                                     {
+                                         return row.deps.AccumulatedDepreciation;
+                                     },
+                                    "targets": 13
+
+                                },
+                                {
+                                    "mRender": function (data, type, row)
+                                    {
+                                        return row.deps.CurrentDepreciation;
+                                    },
+                                    "targets": 14
+                                },
+                                {
+                                    "mRender": function (data, type, row) {
+                                        return row.deps.UnderappreciatedValue;
+                                    },
+                                    "targets": 15
+                                }
+                            ],
+                            "iDisplayLength": @ViewBag.BasePageSize
+                        });
+
+                    },
+                    error: function (req, status, error) {
+                        alert('There is some issue with server. Please try again later.');
+                    }
+                });
+        }
+
+        $(document).ready(function () {
+
+            $("#ddlYear").change(function () {
+                $('#tblProjections').html("");
+
+                bindInventoryReport($(this).val());
+            });
+        });
+    </script>
+}

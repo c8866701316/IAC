@@ -1,0 +1,59 @@
+﻿@model IntegratedAppraisalControl.Models.DTO.TblClientsDTO
+@{
+    ViewBag.Title = "Location Edit";
+}
+
+<div class="panel-group main" id="accordion">
+    <div class="panel panel-primary">
+        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#buildingmain">
+            <h4 class="panel-title">
+                @ViewBag.Title
+            </h4>
+        </div>
+        <div id="buildingmain" class="panel-collapse collapse in">
+            @Html.Partial("_AddEdit", Model);
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            fnFormvalidate("frmLocation");
+            $('#frmLocation').submit(function (e) {
+
+                e.preventDefault(); // avoid to execute the actual submit of the form.
+                if (!$("#frmLocation").valid()) {
+                    return;
+                }
+
+
+                $(this).ajaxSubmit({
+                    success: function (responseText, statusText, xhr, $form) {
+                        alert(responseText.Message);
+                        console.log(responseText.Data);
+                        if (responseText.Status) {
+                            //$('#frmLocation').resetForm();
+                            //LoadTaleData();
+                        }
+                    }
+                });
+                return false;
+            });
+
+
+            if ($('#Active').val() == 'True') {
+                $("input[name=optrole][value='Active']").prop("checked", true);
+            }
+            else {
+                $("input[name=optrole][value='Inactive']").prop("checked", true);
+            }
+
+            $(document).on('change', 'input[type=radio][name=optrole]', function () {
+                $('#Active').val(false);
+                $('#' + $(this).val()).val(true);
+            });
+        });
+    </script>
+}

@@ -1,0 +1,53 @@
+﻿@model IntegratedAppraisalControl.Models.DTO.TblDepartmentsDTO
+@{
+
+}
+@using (Html.BeginForm("Add", "Department", FormMethod.Post, new { @class = "form-horizontal", @id = "frmDepartment" }))
+{
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label class="col-lg-6 control-label">Department Code:</label>
+                    <div class="col-lg-6">
+                        @Html.TextBoxFor(m => m.DepartmentCode, new { @class = "form-control required required2", @maxlength = "5", @placeholder = "Department Code" })
+                        @Html.HiddenFor(m => m.DepartmentId)
+                        @Html.HiddenFor(m => m.MarkForDeletion)
+                        @Html.Hidden("IsDuplicate", false)
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label class="col-lg-6 control-label">Department Name*:</label>
+                    <div class="col-lg-6">
+                        @Html.TextBoxFor(m => m.DepartmentName, new { @class = "form-control required required2", @maxlength = "50", @placeholder = "Department Name" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-footer">
+
+        <div class="modal-footer">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="button" id="btnSave" class="btn btn-primary" value="Save / Exit" />
+                @if (Model.DepartmentId > 0)
+                {
+                    <input type="button" id="btnSaveDup" class="btn btn-primary" value="Save / Dup" />
+                    <input type="button" id="btnUndo" class="btn btn-primary" value="Undo" data-departmentid="@Model.DepartmentId" />
+                    if (Convert.ToBoolean(Model.MarkForDeletion))
+                    {
+                        <input type="button" id="btnUndoDelete" class="btn btn-primary" value="Undo Delete" />
+                    }
+                    else
+                    {
+                        <input type="button" id="btnDelete" class="btn btn-primary" value="Delete" />
+                    }
+                }
+                <input type="button" id="btnExit" class="btn btn-primary" value="Exit" />
+            </div>
+        </div>
+    </div>
+}

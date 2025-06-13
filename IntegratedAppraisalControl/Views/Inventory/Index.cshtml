@@ -1,0 +1,565 @@
+﻿@model IntegratedAppraisalControl.Models.DTO.TblInventoryDTO
+@{
+    ViewBag.Title = "Inventory List";
+}
+<div class="panel-group main" id="accordion">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            @if (!(ViewBag.BaseReadOnly))
+            {
+                <div class="btn-group pull-right">
+                    <a href="#" data-toggle="modal" data-target="#modalAddInventory" class="btn btn-default btn-sm">&nbsp; Add</a>
+                </div>
+            }
+            <h4 class="panel-title">
+                @ViewBag.Title
+            </h4>
+        </div>
+        <div id="buildingsections" class="panel-collapse collapse in">
+            <div class="panel-body">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive" style="overflow-x:scroll">
+                            <table id="tblInventoryList">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Tag No
+                                        </th>
+                                        <th>
+                                            Bldg
+                                        </th>
+                                        <th>
+                                            Flr
+                                        </th>
+                                        <th>
+                                            Rm
+                                        </th>
+                                        <th>
+                                            Dept
+                                        </th>
+                                        <th>
+                                            Ast CL
+                                        </th>
+                                        <th>
+                                            Qty
+                                        </th>
+                                        <th>
+                                            Description
+                                        </th>
+                                        <th>
+                                            Po #
+                                        </th>
+                                        <th>
+                                            Repl Cost
+                                        </th>
+                                        <th>
+                                            Sound Val
+                                        </th>
+                                        <th>
+                                            Acq Cost
+                                        </th>
+                                        <th>
+                                            Month Acqd
+                                        </th>
+                                        <th>
+                                            Year Acqd
+                                        </th>
+                                        <th>
+                                            Serial
+                                        </th>
+                                        <th>
+                                            MFG
+                                        </th>
+                                        <th>
+                                            Model
+                                        </th>
+                                        <th>
+                                            Edit
+                                        </th>
+                                    </tr>
+                                </thead>
+                                @*<thead class="filters">
+                                        <tr>
+                                            <td>
+                                                Tag No
+                                            </td>
+                                            <td>
+                                                Bldg
+                                            </td>
+                                            <td>
+                                                Flr
+                                            </td>
+                                            <td>
+                                                Rm
+                                            </td>
+                                            <td>
+                                                Dept
+                                            </td>
+                                            <td>
+                                                Ast CI
+                                            </td>
+                                            <td>
+                                                Qty
+                                            </td>
+                                            <td>
+                                                Description
+                                            </td>
+                                            <td>
+                                                Po #
+                                            </td>
+                                            <td>
+                                                Repl Cost
+                                            </td>
+                                            <td>
+                                                Sound Val
+                                            </td>
+                                            <td>
+                                                Acq Cost
+                                            </td>
+                                            <td>
+                                                Montd Acqd
+                                            </td>
+                                            <td>
+                                                Year Acqd
+                                            </td>
+                                            <td>
+                                                Serial
+                                            </td>
+                                            <td>
+                                                MFG
+                                            </td>
+                                            <td>
+                                                Model
+                                            </td>
+                                            <th>
+
+                                            </th>
+                                        </tr>
+                                    </thead>*@
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (!(ViewBag.BaseReadOnly))
+{
+    <div class="modal fade" id="modalAddInventory" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg" style="width: 1140px;">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <button type="button" class="close"
+                            data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title">
+                        Add Inventory
+                    </h4>
+                </div>
+                <!-- Modal Body -->
+                <div class="modal-body">
+                    @using (Html.BeginForm("Add", "Inventory", FormMethod.Post, new { @class = "form-horizontal", @id = "frmInventory" }))
+                    {
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group col-md-12">
+                                        <label class="col-lg-3 control-label">Tag Number:</label>
+                                        <div class="col-lg-4">
+                                            @Html.TextBoxFor(m => m.Tag, new { @class = "form-control", @maxlength = 10, @placeholder = "Tag Number" })
+                                        </div>
+                                        <label class="col-lg-3 control-label">System #:</label>
+                                        <label class="col-lg-2 control-label">@Model.SystemNumber</label>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label class="col-lg-3 control-label">Building*:</label>
+                                        <div class="col-lg-9">
+                                            @Html.DropDownListFor(m => m.BuildingId, new SelectList(ViewBag.listBuildings, "BuildingId", "BuildingCode"), "", new { placeholder = "Building", @class = "select2 required required2 form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label class="col-lg-3 control-label">Room:</label>
+                                        <div class="col-lg-9">
+                                            @Html.DropDownListFor(m => m.RoomId, new SelectList(ViewBag.lstRooms, "RoomId", "RoomDescription"), "", new { placeholder = "Room", @class = "select2 form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label class="col-lg-3 control-label">Department:</label>
+                                        <div class="col-lg-9">
+                                            @Html.DropDownListFor(m => m.DeptId, new SelectList(ViewBag.lstDepartments, "DepartmentId", "DepartmentName"), "", new { placeholder = "Department", @class = "select2 form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label class="col-lg-3 control-label">Asset Class:</label>
+                                        <div class="col-lg-9">
+                                            @Html.DropDownListFor(m => m.RoomId, new SelectList(ViewBag.lstAssetClass, "AssetClassId", "AssetClassName"), "", new { placeholder = "Asset Class", @class = "select2 required required2 form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label class="col-lg-3 control-label">Quantity:</label>
+                                        <div class="col-lg-4">
+                                            @Html.TextBoxFor(m => m.Qty, new { @class = "form-control required required2", @type = "number", @placeholder = "Quantity" })
+                                        </div>
+                                        <label class="col-lg-2 control-label">Floor:</label>
+                                        <div class="col-lg-3">
+                                            @Html.TextBoxFor(m => m.Floor, new { @class = "form-control", @placeholder = "Floor" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-12">
+                                        <label class="col-lg-3 control-label">Description:</label>
+                                        <div class="col-lg-9">
+                                            @Html.TextAreaFor(m => m.Descr, new { @class = "form-control required required2", @maxlength = "500", @placeholder = "Description" })
+                                        </div>
+                                    </div>
+
+                                    @*<div class="form-group col-md-12">
+                                        <label class="col-lg-3 control-label">Repl Value:</label>
+                                        <div class="col-lg-9">
+                                            @Html.TextBoxFor(m => m.Crn, new { @class = "form-control required required2", @maxlength = "10", @type = "number", @placeholder = "Repl Value" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-12">
+                                        <label class="col-lg-3 control-label">Sound Value:</label>
+                                        <div class="col-lg-9">
+                                            @Html.TextBoxFor(m => m.SoundValue, new { @class = "form-control required required2", @maxlength = "10", @type = "number", @placeholder = "Sound Value" })
+                                        </div>
+                                    </div>*@
+
+                                    <div class="form-group col-md-12">
+                                        <label class="col-lg-3 control-label">Acquisition Cost:</label>
+                                        <div class="col-lg-9">
+                                            @Html.TextBoxFor(m => m.Cost, new { @class = "form-control required required2", @maxlength = "10", @type = "number", @placeholder = "Acquisition Cost" })
+                                        </div>
+                                    </div>
+
+                                    @*<div class="form-group col-md-12">
+                                        <label class="col-lg-3 control-label">Salvage Value:</label>
+                                        <div class="col-lg-9">
+                                            @Html.TextBoxFor(m => m.SalvageValue, new { @class = "form-control required required2", @maxlength = "10", @type = "number", @placeholder = "Salvage Value" })
+                                        </div>
+                                    </div>*@
+
+                                    <div class="form-group col-md-12">
+                                        <label class="col-lg-3 control-label">Date Acquired:</label>
+                                        <div class="col-lg-4">
+                                            @Html.TextBoxFor(m => m.Month, new { @class = "form-control required required2", @max = "12", @min = "1", @digit = true, @type = "number", @placeholder = "Month" })
+                                        </div>
+                                        <div class="col-lg-5">
+                                            @Html.TextBoxFor(m => m.Year, new { @class = "form-control required required2", @max = "2099", @min = "1900", @digit = true, @type = "number", @placeholder = "Year" })
+                                        </div>
+
+                                    </div>
+
+                                    @*<div class="form-group col-md-12">
+                                        <lable class="col-lg-3 control-label">Life</lable>
+                                        <div class="col-lg-4">
+                                            @Html.TextBoxFor(m => m.Life, new { @class = "form-control", @maxlength = "2", @type = "number", @placeholder = "Life" })
+                                        </div>
+                                    </div>*@
+
+                                </div>
+
+                                <div class="col-md-5">
+                                    <div class="form-group col-md-12">
+                                        <label class="col-lg-3 control-label">Serial:</label>
+                                        <div class="col-lg-9">
+                                            @Html.TextBoxFor(m => m.SerNo, new { @class = "form-control", @maxlength = "50", @placeholder = "Serial" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label class="col-lg-3 control-label">Manufacturer:</label>
+                                        <div class="col-lg-3">
+                                            @Html.TextBoxFor(m => m.Mfg, new { @class = "form-control", @maxlength = "50", @placeholder = "Manufacturer" })
+                                        </div>
+                                        @if (!string.IsNullOrEmpty(Model.Sdf1label))
+                                        {
+                                            <label class="col-lg-3 control-label">@Model.Sdf1label</label>
+                                            <div class="col-lg-3">
+                                                @Html.TextBoxFor(m => m.Sdf1, new { @class = "form-control", @placeholder = @Model.Sdf1label })
+                                            </div>
+                                        }
+
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label class="col-lg-3 control-label">Model:</label>
+                                        <div class="col-lg-3">
+                                            @Html.TextBoxFor(m => m.Model, new { @class = "form-control", @maxlength = "50", @placeholder = "Model" })
+                                        </div>
+                                        @if (!string.IsNullOrEmpty(Model.Sdf2label))
+                                        {
+
+                                            <label class="col-lg-3 control-label">@Model.Sdf2label</label>
+                                            <div class="col-lg-3">
+                                                @Html.TextBoxFor(m => m.Sdf2, new { @class = "form-control", @placeholder = Model.Sdf2label })
+                                            </div>
+                                        }
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label class="col-lg-3 control-label">PO#:</label>
+                                        <div class="col-lg-3">
+                                            @Html.TextBoxFor(m => m.Pono, new { @class = "form-control", @maxlength = "50", @placeholder = "PO#" })
+                                        </div>
+                                        @if (!string.IsNullOrEmpty(Model.Sdf3label))
+                                        {
+                                            <label class="col-lg-3 control-label">@Model.Sdf3label</label>
+                                            <div class="col-lg-3">
+                                                @Html.TextBoxFor(m => m.Sdf3, new { @class = "form-control", @placeholder = @Model.Sdf3label })
+                                            </div>
+                                        }
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label class="col-lg-3 control-label">Fund:</label>
+                                        <div class="col-lg-3">
+                                            @Html.TextBoxFor(m => m.Fund, new { @class = "form-control", @maxlength = "50", @placeholder = "Fund" })
+                                        </div>
+                                        @if (!string.IsNullOrEmpty(Model.Sdf4label))
+                                        {
+                                            <label class="col-lg-3 control-label">@Model.Sdf4label</label>
+                                            <div class="col-lg-3">
+                                                @Html.TextBoxFor(m => m.Sdf4, new { @class = "form-control", @placeholder = @Model.Sdf4label })
+                                            </div>
+                                        }
+
+                                    </div>
+
+                                    <div class="form-group col-md-12">
+                                        <label class="col-lg-3 control-label">Funct:</label>
+                                        <div class="col-lg-3">
+                                            @Html.TextBoxFor(m => m.Funct, new { @class = "form-control", @maxlength = "50", @placeholder = "Funct" })
+                                        </div>
+                                    </div>
+
+
+                                    @*@if (Convert.ToBoolean(Model.Accounting))
+                                        {
+
+                                            <div class="form-group col-md-12">
+                                                <label class="col-lg-6 control-label">Annual Depreciation:</label>
+                                                <div class="col-lg-6">
+                                                    @Html.TextBoxFor(m => m.AnnualDepreciation, new { @class = "form-control", @readonly = true, @placeholder = "Annual Depreciation" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-md-12">
+                                                <label class="col-lg-6 control-label">Undepreciated Value:</label>
+                                                <div class="col-lg-6">
+                                                    @Html.TextBoxFor(m => m.UndepreciatedValue, new { @class = "form-control", @readonly = true, @placeholder = "Undepreciated Value" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-md-12">
+                                                <label class="col-lg-6 control-label">Accumulated Depreciation:</label>
+                                                <div class="col-lg-6">
+                                                    @Html.TextBoxFor(m => m.AccumulatedDepreciation, new { @class = "form-control", @readonly = true, @placeholder = "Accumulated Depreciation" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-md-12">
+                                                <label class="col-lg-6 control-label">Reporting Year:</label>
+                                                <div class="col-lg-6">
+                                                    @Html.TextBoxFor(m => m.ReportYear, new { @class = "form-control", @readonly = true, @placeholder = "Reporting Year" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-md-12">
+                                                <label class="col-lg-6 control-label">1st Year Depreciation:</label>
+                                                <div class="col-lg-6">
+                                                    @Html.TextBoxFor(m => m.FirstYearDepreciationText, new { @class = "form-control", @readonly = true, @placeholder = "1st Year Depreciation" })
+                                                </div>
+                                            </div>
+                                        }*@
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <div class='fileupload'>
+                                            @if (!string.IsNullOrEmpty(Model.ImageFileName))
+                                            {
+                                                <img class="imgpreview" align='middle' src="@Url.Content("~/uploads/" + Model.ImageFileName)" data-oldimage="@Model.ImageFileName" />
+                                            }
+                                            else
+                                            {
+                                                <img class="imgpreview" align='middle' src="@Url.Content("~/Images/noimage.png")" data-oldimage="@Url.Content("~/Images/noimage.png")" />
+                                            }
+                                            <input type='file' name="file" class="fileup" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel-footer">
+                            @if (!(ViewBag.BaseReadOnly))
+                            {
+                                <div class="modal-footer">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" id="btnSave" class="btn btn-primary" value="Save" />
+                                        @*<input type="button" id="btnUndo" class="btn btn-primary" value="Undo" />
+                                            <input type="submit" id="btnSaveDupl" class="btn btn-primary" value="Save / Duplicate" />
+
+                                            @if (!Convert.ToBoolean(Model.MarkForDeletion))
+                                            {
+                                                <input type="submit" id="btnDelete" class="btn btn-primary" value="Delete" />
+                                            }
+                                            else
+                                            {
+                                                <input type="button" class="btn btn-primary" value="Already mark for delete" disabled />
+                                            }
+                                            <a href="@Url.Action("Index","Inventory")" class="btn btn-primary">Exit</a>*@
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                </div>
+                <!-- Modal Footer -->
+            </div>
+        </div>
+    </div>
+}
+
+
+
+@section Scripts{
+    <script type="text/javascript">
+
+        function LoadTaleData() {
+
+            $.ajax({
+                url: '@Url.Action("InventoryList", "Inventory")',
+                type: 'GET',
+                dataType: "json",
+                success: function (response) {
+
+                    //if (response.data.length > 0)
+                    //{
+
+                        //$('#tblInventoryList .filters td').each(function () {
+                        //    var title = $('#tblInventoryList thead th').eq($(this).index()).text();
+                        //    if (title.trim() != '') {
+                        //        $(this).html('<input type="text" class="cust-input-sm" placeholder="Search ' + title.trim() + '" />');
+                        //    }
+                        //});
+
+                         var table = $('#tblInventoryList').DataTable({
+                                data: response.data,
+                                 columns: [
+                                     { data: "Tag" },
+                                     { data: "BuildingCode" },
+                                     { data: "Floor" },
+                                     { data: "RoomCode" },
+                                     { data: "DepartmentCode" },
+                                     { data: "AssetClassCode" },
+                                     { data: "Qty" },
+                                     { data: "Descr" },
+                                     { data: "Pono" },
+                                     { data: "Crn" },
+                                     { data: "SoundValue" },
+                                     { data: "Cost" },
+                                     { data: "Month" },
+                                     { data: "Year" },
+                                     { data: "SerNo" },
+                                     { data: "Mfg" },
+                                     { data: "Model" },
+                                     { data: "InventoryId" }
+                                    ],
+                                destroy: true,
+                                "aLengthMenu": [
+                                    [5, 10, 15, 20, -1],
+                                    [5, 10, 15, 20, "All"]
+                             ],
+                                 dom: 'Bfrtip',
+                                buttons: [
+                                    {
+                                        extend: 'csvHtml5',
+                                        title: 'Inventory csv',
+                                        className:'btn btn-primary',
+                                        exportOptions: {
+                                            columns: [0, 1, 2, 3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+                                        }
+                                    },
+                                    {
+                                        extend: 'excelHtml5',
+                                        title: 'Inventory excel',
+                                        className: 'btn btn-primary',
+                                        exportOptions: {
+                                            columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+                                        }
+                                    }
+                                ],
+                                "columnDefs": [
+                                 {
+                                     "mRender": function (data, type, row)
+                                     {
+                                         var html = '<a href="@Url.Action("Edit", "Inventory")?Id=' + data + '">Edit</a>';
+                                         return html;
+                                     },
+                                        "targets": 17,
+                                        "visible":false
+
+                                 },
+                             ],
+                             "iDisplayLength": @ViewBag.BasePageSize,
+                             "language": {
+                                 "emptyTable": "No data available in table"
+                             },
+                             "drawCallback": function (settings) {
+                                 var api = this.api();
+                                 console.log(api.rows({ page: 'current' }).data());
+                                 $("#tblInventoryList tbody tr").dblclick(function (){
+                                    window.location.href = '@Url.Action("Edit", "Inventory")' + '?Id=' + table.row(this).data().InventoryId;
+                                });
+                             }
+                         })
+
+                },
+                error: function (req, status, error) {
+                    alert('There is some issue with server. Please try again later.');
+                }
+        });
+        }
+
+        $(document).ready(function () {
+            fnFormvalidate("frmInventory");
+
+            $('#frmInventory').submit(function (e)
+            {
+                e.preventDefault(); // avoid to execute the actual submit of the form.
+                if (!$("#frmInventory").valid()) {
+                    return;
+                }
+
+
+                $(this).ajaxSubmit({
+                    success: function (responseText, statusText, xhr, $form) {
+                        alert(responseText.Message);
+                        console.log(responseText.Data);
+                        if (responseText.Status) {
+                            $('#frmInventory').resetForm();
+                            $('.imgpreview').attr('src', $('.imgpreview').data('oldimage'));
+                            LoadTaleData();
+                        }
+                    }
+                });
+                return false;
+            });
+
+            LoadTaleData();
+
+            $('#BuildingId').change(function () {
+                fillDDLFromOther('RoomId','@Url.Action("GetRoomListByBuildingId", "Inventory")?BuildingId=' + $(this).val());
+            });
+        })
+
+
+    </script>
+}

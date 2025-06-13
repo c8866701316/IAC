@@ -1,0 +1,223 @@
+﻿@model IntegratedAppraisalControl.Models.DTO.TblClientsDTO
+@{
+
+    if(Model.ClientId == 0)
+    {
+        Model.NextRoomNumber = 9000;
+        Model.NextDepartmentNumber = 9000;
+    }
+}
+
+
+@using (Html.BeginForm("Add", "Location", FormMethod.Post, new { @class = "form-horizontal", @id = "frmLocation" }))
+{
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="form-group col-md-12">
+                    <label class="col-lg-3 control-label">Name:</label>
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(m => m.ClientName, new { @class = "form-control required required2", @maxlength = "50", @placeholder = "Name" })
+                        @Html.HiddenFor(m => m.ClientId)
+                    </div>
+                    @*<label class="col-lg-2 control-label">System #:</label>*@
+                    @*<label class="col-lg-2 control-label">@Model.ClientId</label>*@
+                </div>
+                <div class="form-group col-md-12">
+                    <label class="col-lg-3 control-label">Address1:</label>
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(m => m.Address1, new { placeholder = "Address 1", @class = "select2 required required2 form-control", @maxlength = "50" })
+                    </div>
+                </div>
+                <div class="form-group col-md-12">
+                    <label class="col-lg-3 control-label">Address2:</label>
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(m => m.Address2, new { placeholder = "Address 2", @maxlength = "50", @class = "select2 form-control" })
+                    </div>
+                </div>
+                <div class="form-group col-md-12">
+                    <label class="col-lg-3 control-label">City:</label>
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(m => m.City, new { placeholder = "City", @maxlength = "50", @class = "select2 required required2 form-control" })
+                    </div>
+                </div>
+                <div class="form-group col-md-12">
+                    <label class="col-lg-3 control-label">State:</label>
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(m => m.State, new { placeholder = "State", @maxlength = "5", @class = "select2 required required2 form-control" })
+                    </div>
+                </div>
+                <div class="form-group col-md-12">
+                    <label class="col-lg-3 control-label">ZipCode:</label>
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(m => m.ZipCode, new { @class = "form-control required required2", @maxlength = "10", @placeholder = "ZipCode" })
+                    </div>
+                </div>
+                <div class="form-group col-md-12">
+                    <label class="col-lg-3 control-label">Point Of Contact:</label>
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(m => m.PointOfContact, new { @class = "form-control  required required2", @maxlength = "100", @placeholder = "Point Of Contact" })
+                    </div>
+                </div>
+                <div class="form-group col-md-12">
+                    <label class="col-lg-3 control-label">Telephone:</label>
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(m => m.Telephone, new { @class = "form-control  required required2", @maxlength = "25", @placeholder = "Telephone" })
+                    </div>
+                </div>
+
+                <div class="form-group col-md-12">
+                    <label class="col-lg-3 control-label">Report Year:</label>
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(m => m.ReportYear, new { @class = "form-control  required required2", @maxlength = "4",@type="number", @placeholder = "Report Year" })
+                    </div>
+                </div>
+
+                <div class="form-group col-md-12">
+                    <label class="col-lg-3 control-label">Accounting Year:</label>
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(m => m.AccountingYear, new { @class = "form-control  required required2", @maxlength = "4",@type ="number", @placeholder = "Accounting Year" })
+                    </div>
+                </div>
+
+                <div class="form-group col-md-12">
+                    <label class="col-lg-3 control-label">Cost CutOff:</label>
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(m => m.AquisitionCostCutOff, new { @class = "form-control  required required2", @maxlength = "10",@type="number", @placeholder = "Cost CutOff" })
+                    </div>
+                </div>
+
+                <div class="form-group col-md-12">
+                    <label class="col-lg-3 control-label">Annual Depreciation:</label>
+                    <div class="col-lg-9">
+                        @Html.DropDownListFor(m => m.AnnualDepreciationId, new SelectList(ViewBag.lstAnnualDepreciation, "AnnualDepreciationId", "AnnualDepreciationText"), "", new { placeholder = "Annual Depreciation", @class = "select2 required required2 form-control" })
+                        @*@Html.TextBoxFor(m => m.AnnualDepreciationId, new { @class = "form-control", @placeholder = "Annual Depreciation" })*@
+                    </div>
+                </div>
+
+                <div class="form-group col-md-12">
+                    <label class="col-lg-3 control-label">First Year Depreciation:</label>
+                    <div class="col-lg-9">
+                        @Html.DropDownListFor(m => m.FirstYearDepreciationD, new SelectList(ViewBag.lstFirstYearDepreciationList, "FirstYearDepreciationId", "FirstYearDepreciationText"), "", new { placeholder = "First Year Depreciation", @class = "select2 required required2 form-control" })
+                        @*@Html.TextBoxFor(m => m.FirstYearDepreciationD, new { @class = "form-control", @placeholder = "First Year Depreciation" })*@
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="form-group col-md-12">
+                    <label class="col-lg-3 control-label">Sdf1 Label:</label>
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(m => m.Sdf1label, new { @class = "form-control", @maxlength = "50", @placeholder = "Sdf1 Label" })
+                    </div>
+                </div>
+                <div class="form-group col-md-12">
+                    <label class="col-lg-3 control-label">Sdf2 Label:</label>
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(m => m.Sdf2label, new { @class = "form-control", @maxlength = "50", @placeholder = "Sdf2 Label" })
+                    </div>
+                </div>
+                <div class="form-group col-md-12">
+                    <label class="col-lg-3 control-label">Sdf3 Label:</label>
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(m => m.Sdf3label, new { @class = "form-control", @maxlength = "50", @placeholder = "Sdf3 Label" })
+                    </div>
+                </div>
+                <div class="form-group col-md-12">
+                    <label class="col-lg-3 control-label">Sdf4 Label:</label>
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(m => m.Sdf4label, new { @class = "form-control", @maxlength = "50", @placeholder = "Sdf4 Label" })
+                    </div>
+                </div>
+                <div class="form-group col-md-12">
+                    <label class="col-lg-3 control-label">Status:</label>
+                    <div class="col-lg-9">
+                        @Html.HiddenFor(m => m.Active)
+                        <label class="checkbox-container">
+                            Active
+                            <input type="radio" name="optrole" class="clsRole" value="Active">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="checkbox-container">
+                            Inactive
+                            <input type="radio" name="optrole" class="clsRole" value="Inactive">
+                            <span class="checkmark"></span>
+                        </label>
+
+                        @*@Html.TextBoxFor(m => m.ClientStatusId, new { @class = "form-control", @placeholder = "Status" })*@
+                    </div>
+                </div>
+                <div class="form-group col-md-12">
+                    <label class="col-lg-3 control-label">File No:</label>
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(m => m.FileNo, new { @class = "form-control required required2", @maxlength = "10", @placeholder = "File No" })
+                    </div>
+                </div>
+                <div class="form-group col-md-12">
+                    <label class="col-lg-3 control-label">Appraisal Date</label>
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(m => m.AppraisalDate, new { @class = "form-control required required2", @maxlength = "10", @placeholder = "Appraisal Date" })
+                    </div>
+                </div>
+                <div class="form-group col-md-12">
+                    <label class="col-lg-3 control-label">Updated To:</label>
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(m => m.UpdatedTo, new { @class = "form-control required required2", @maxlength = "10", @placeholder = "UpdatedTo" })
+                    </div>
+                </div>
+
+                <div class="form-group col-md-12">
+                    <label class="col-lg-3 control-label">Account Data As Of:</label>
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(m => m.AccountDataAsOf, new { @class = "form-control required required2", @maxlength = "10", @placeholder = "AccountDataAsOf" })
+                    </div>
+                </div>
+
+                <div class="form-group col-md-12">
+                    <div class="col-lg-12">
+                        @Html.CheckBoxFor(m => m.Accounting)Accounting &nbsp;&nbsp;&nbsp;
+                        @Html.CheckBoxFor(m => m.Insurance)Insurance &nbsp;&nbsp;&nbsp;
+                        @Html.CheckBoxFor(m => m.Fmv)Fmv
+                    </div>
+                </div>
+
+                <div class="form-group col-md-12">
+                    <label class="col-lg-3 control-label">Next Room Number:</label>
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(m => m.NextRoomNumber, new { @class = "form-control required required2", @digits = true, @placeholder = "Next Room Number" })
+                    </div>
+                </div>
+                <div class="form-group col-md-12">
+                    <label class="col-lg-3 control-label">Next Department Number:</label>
+                    <div class="col-lg-9">
+                        @Html.TextBoxFor(m => m.NextDepartmentNumber, new { @class = "form-control required required2", @digits = true, @placeholder = "Next Department Number" })
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="panel-footer">
+        @if (!(ViewBag.BaseReadOnly))
+        {
+            <div class="modal-footer">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" id="btnSave" class="btn btn-primary" value="Save" />
+                    @*<input type="button" id="btnUndo" class="btn btn-primary" value="Undo" />
+                        <input type="submit" id="btnSaveDupl" class="btn btn-primary" value="Save / Duplicate" />
+
+                        @if (!Convert.ToBoolean(Model.MarkForDeletion))
+                        {
+                            <input type="submit" id="btnDelete" class="btn btn-primary" value="Delete" />
+                        }
+                        else
+                        {
+                            <input type="button" class="btn btn-primary" value="Already mark for delete" disabled />
+                        }*@
+                    <a href="@Url.Action("Index","Location")" class="btn btn-primary">Exit</a>
+                </div>
+            </div>
+        }
+    </div>
+}

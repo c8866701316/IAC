@@ -1,0 +1,272 @@
+﻿@model IntegratedAppraisalControl.Models.DTO.TblDepartmentsDTO
+@{
+    ViewBag.Title = "Departments List";
+}
+
+<div class="panel-group main" id="accordion">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            @if (!(ViewBag.BaseReadOnly))
+            {
+                <div class="btn-group pull-right">
+                    <button class="btn btn-default btn-sm" id="btnAdd">Add</button>
+                </div>
+            }
+            <h4 class="panel-title">
+                @ViewBag.Title
+            </h4>
+        </div>
+        <div id="buildingsections" class="panel-collapse collapse in">
+            <div class="panel-body">
+
+                @*@if (!(ViewBag.BaseReadOnly))
+                    {
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <button class="btn btn-primary pull-right" id="btnAdd">Add</button>
+                            </div>
+                        </div>
+                    }*@
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive" style="overflow-x:scroll">
+                            <table class="table" id="tblDepartment">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Department Code
+                                        </th>
+                                        <th>
+                                            Department Name
+                                        </th>
+                                        <th>
+                                            Mark for Deletion
+                                        </th>
+                                        <th>
+
+                                        </th>
+                                    </tr>
+                                </thead>
+                                @*<thead class="filters">
+                                        <tr>
+                                            <td>
+                                                Department Code
+                                            </td>
+                                            <td>
+                                                Department Name
+                                            </td>
+                                            <td>
+                                                Mark for Deletion
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                    </thead>*@
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (!(ViewBag.BaseReadOnly))
+{
+    <div class="modal fade" id="modalAddDepartment" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg" style="width: 1140px;">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <button type="button" class="close"
+                            data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title">
+                        Add/Update Department
+                    </h4>
+                </div>
+                <!-- Modal Body -->
+                <div class="modal-body" id="popupAdd">
+                </div>
+                <!-- Modal Footer -->
+            </div>
+        </div>
+    </div>
+}
+
+
+
+@section Scripts{
+    <script type="text/javascript">
+
+        function LoadTaleData() {
+                $.ajax({
+                    url: '@Url.Action("DepartmentList", "Department")',
+                    type: 'GET',
+                    dataType: "json",
+                    success: function (response) {
+
+                        if (response.data.length > 0)
+                        {
+                            var table = $('#tblDepartment').DataTable({
+                                    data: response.data,
+                                     columns: [
+                                         { data: "DepartmentCode" },
+                                         { data: "DepartmentName" },
+                                         { data: "MarkForDeletion" },
+                                         { data: "DepartmentId" }
+                                        ],
+                                    destroy: true,
+                                    "aLengthMenu": [
+                                        [5, 10, 15, 20, -1],
+                                        [5, 10, 15, 20, "All"]
+                                ],
+                                dom: 'Bfrtip',
+                                buttons: [
+                                    {
+                                        extend: 'csvHtml5',
+                                        title: 'Department csv',
+                                        className: 'btn btn-primary',
+                                        exportOptions: {
+                                            columns: [0, 1, 2]
+                                        }
+                                    },
+                                    {
+                                        extend: 'excelHtml5',
+                                        title: 'Department excel',
+                                        className: 'btn btn-primary',
+                                        exportOptions: {
+                                            columns: [0, 1, 2]
+                                        }
+                                    }
+                                ],
+
+                                    "columnDefs": [
+                                     {
+                                         "mRender": function (data, type, row)
+                                         {
+                                             var html = '<a href="#" class="clsEdit" data-departmentid='+data+'>Edit</a>';
+                                             return html;
+                                         },
+                                        "targets": 3,
+                                        "visible":false
+                                     },
+                                 ],
+                                 "iDisplayLength": @ViewBag.BasePageSize,
+                                 "language": {
+                                     "emptyTable": "No data available in table"
+                                },
+                                "drawCallback": function (settings) {
+                                    var api = this.api();
+                                    $("#tblDepartment tbody tr").dblclick(function () {
+                                        loadPopup(table.row(this).data().DepartmentId);
+                                    });
+                                }
+                            })
+
+                            //$('#tblDepartment tbody tr').dblclick(function () {
+                            //    loadPopup(table.row(this).data().DepartmentId);
+                            //});
+                        }
+                    },
+                    error: function (req, status, error) {
+                        alert('There is some issue with server. Please try again later.');
+                    }
+            });
+        }
+
+        function loadPopup(DepartmentId) {
+            $.ajax({
+                url: '@Url.Action("_Department", "Department")',
+                type: 'GET',
+                data: {
+                    DepartmentId: DepartmentId
+                },
+                success: function (html) {
+                    $('#popupAdd').html(html);
+                    if (!($('#modalAddDepartment').is(':visible'))) {
+                        $('#modalAddDepartment').modal('show');
+                        fnFormvalidate("frmDepartment");
+                    }
+                },
+                error: function () {
+                    alert('There is some issue, Please try again after some time.')
+                }
+            });
+        }
+
+        function AddUpdateDepartment(DepartmentId) {
+
+            if (!$('#frmDepartment').valid()) {
+                return;
+            }
+
+            $.ajax({
+                url: '@Url.Action("AddUpdate", "Department")',
+                type: 'POST',
+                dataType:'json',
+                data: $('#frmDepartment').serialize(),
+                success: function (result) {
+                    console.log(result);
+                    if (result.Status)
+                    {
+                        $('#modalAddDepartment').modal('hide');
+                        LoadTaleData();
+                    }
+                    alert(result.Message);
+                    console.log(result.Data);
+                },
+                error: function () {
+                    alert('There is some issue, Please try again after some time.')
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            LoadTaleData();
+
+            $(document).on('click', '#btnSave', function () {
+                $('#IsDuplicate').val(false);
+                AddUpdateDepartment();
+            });
+
+            $(document).on('click', '#btnSaveDup', function () {
+                $('#IsDuplicate').val(true);
+                AddUpdateDepartment();
+            });
+
+            $(document).on('click', '#btnUndo', function () {
+                loadPopup($(this).data('departmentid'));
+            });
+            $(document).on('click', '.clsEdit', function () {
+                loadPopup($(this).data('departmentid'));
+            });
+
+
+            $(document).on('click', '#btnExit', function () {
+                $('#modalAddDepartment').modal('hide');
+            });
+
+            $(document).on('click', '#btnDelete', function () {
+                $('#MarkForDeletion').val(true);
+                AddUpdateDepartment();
+            });
+
+            $(document).on('click', '#btnUndoDelete', function () {
+                $('#MarkForDeletion').val(false);
+                AddUpdateDepartment();
+            });
+
+            $('#btnAdd').click(function () {
+                loadPopup(0);
+            });
+
+            fnFormvalidate("frmDepartment");
+
+
+        });
+    </script>
+}
+

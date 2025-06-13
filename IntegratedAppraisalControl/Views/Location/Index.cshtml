@@ -1,0 +1,268 @@
+﻿@model IntegratedAppraisalControl.Models.DTO.TblClientsDTO
+@{
+    ViewBag.Title = "Location List";
+}
+
+<div class="panel-group main" id="accordion">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            @if (!(ViewBag.BaseReadOnly))
+            {
+            <div class="btn-group pull-right">
+                @*<a href="#" data-toggle="modal" data-target="#modalAddLoaction" class="btn btn-default btn-sm">&nbsp; Add</a>*@
+                <button class="btn btn-default btn-sm" id="btnAdd">Add</button>
+            </div>
+            }
+            <h4 class="panel-title">
+                @ViewBag.Title
+            </h4>
+        </div>
+        <div id="Locationsections" class="panel-collapse collapse in">
+            <div class="panel-body">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive" style="overflow-x:scroll">
+                            <table id="tblLocationList">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Name
+                                        </th>
+                                        <th>
+                                            File No
+                                        </th>
+                                        <th>
+                                            Address1
+                                        </th>
+                                        <th>
+                                            Address2
+                                        </th>
+                                        <th>
+                                            City
+                                        </th>
+                                        <th>
+                                            State
+                                        </th>
+                                        <th>
+                                            Zip Code
+                                        </th>
+                                        <th>
+                                            Point Of Contact
+                                        </th>
+                                        <th>
+                                            Telephone
+                                        </th>
+                                        <th>
+                                            Report Year
+                                        </th>
+                                        <th>
+                                            Accounting Year
+                                        </th>
+                                        <th>
+                                            Aquisition Cost Cutoff
+                                        </th>
+                                        <th>
+                                            Last Updated
+                                        </th>
+                                        <th>
+                                            Annual Depreciation
+                                        </th>
+                                        <th>
+                                            First year Depreciation
+                                        </th>
+                                        <th>
+                                            Status
+                                        </th>
+                                        <th>
+                                            Edit
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (!(ViewBag.BaseReadOnly))
+{
+    <div class="modal fade" id="modalAddLoaction" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg" style="width: 1140px;">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <button type="button" class="close"
+                            data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title">
+                        Add/Edit Location
+                    </h4>
+                </div>
+                <!-- Modal Body -->
+                <div class="modal-body" id="popupAdd">
+                </div>
+                <!-- Modal Footer -->
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts{
+    <script type="text/javascript">
+
+        function LoadTaleData() {
+            $.ajax({
+                url: '@Url.Action("LocationList", "Location")',
+                type: 'GET',
+                dataType: "json",
+                success: function (response) {
+
+                         var table = $('#tblLocationList').DataTable({
+                                data: response.data,
+                                 columns: [
+                                     { data: "Name" },
+                                     { data: "FileNo" },
+                                     { data: "Addrees1" },
+                                     { data: "Address2" },
+                                     { data: "City" },
+                                     { data: "State" },
+                                     { data: "ZipCode" },
+                                     { data: "PointOfContact" },
+                                     { data: "Telephone" },
+                                     { data: "ReportYear" },
+                                     { data: "AccountingYear" },
+                                     { data: "AquisitionCostCutOff" },
+                                     { data: "LastUpdated" },
+                                     { data: "AnnualDepreciationText" },
+                                     { data: "FirstYearDepreciationText" },
+                                     { data: "Active" },
+                                     { data: "ClientId" }
+                                    ],
+                                destroy: true,
+                                "aLengthMenu": [
+                                    [5, 10, 15, 20, -1],
+                                    [5, 10, 15, 20, "All"]
+                             ],
+                                 dom: 'Bfrtip',
+                                buttons: [
+                                    {
+                                        extend: 'csvHtml5',
+                                        title: 'Loaction csv',
+                                        className:'btn btn-primary',
+                                        exportOptions: {
+                                            columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+                                        }
+                                    },
+                                    {
+                                        extend: 'excelHtml5',
+                                        title: 'Loaction excel',
+                                        className: 'btn btn-primary',
+                                        exportOptions: {
+                                            columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+                                        }
+                                    }
+                             ],
+                             "aoColumnDefs": [
+                                 {
+                                     "aTargets": [16],
+                                     "visible": false
+                                 }
+                             ],
+
+                             "iDisplayLength": @ViewBag.BasePageSize,
+                             "language": {
+                                 "emptyTable": "No data available in table"
+                             },
+                             "drawCallback": function (settings) {
+                                 var api = this.api();
+                                 $("#tblLocationList tbody tr").dblclick(function () {
+                                     window.location.href = '@Url.Action("Edit", "Location")' + '?Id=' + table.row(this).data().ClientId;
+                                 });
+                             }
+                         })
+                    //}
+                },
+                error: function (req, status, error) {
+                    alert('There is some issue with server. Please try again later.');
+                }
+        });
+        }
+
+        function loadPopup1(Id) {
+
+            $.ajax({
+                url: '@Url.Action("_AddEdit", "Location")',
+                type: 'GET',
+                data: {
+                    Id: Id
+                },
+                success: function (html) {
+                    $('#popupAdd').html(html);
+
+                    if ($('#Active').val() == 'True') {
+                        $("input[name=optrole][value='Active']").prop("checked", true);
+                    }
+                    else {
+                        $("input[name=optrole][value='Inactive']").prop("checked", true);
+                    }
+
+                    if (!($('#modalAddLoaction').is(':visible')))
+                    {
+                        $('#modalAddLoaction').modal('show');
+                    }
+
+                    submitForm();
+                },
+                error: function () {
+                    alert('There is some issue, Please try again after some time.')
+                }
+            });
+        }
+
+        function submitForm() {
+            fnFormvalidate("frmLocation");
+            $('#frmLocation').submit(function (e) {
+                e.preventDefault(); // avoid to execute the actual submit of the form.
+                if (!$("#frmLocation").valid()) {
+                    return;
+                }
+
+
+                $(this).ajaxSubmit({
+                    success: function (responseText, statusText, xhr, $form) {
+                        alert(responseText.Message);
+                        console.log(responseText.Data);
+                        if (responseText.Status) {
+                            $('#frmLocation').resetForm();
+                            //$('.imgpreview').attr('src', $('.imgpreview').data('oldimage'));
+                            LoadTaleData();
+                        }
+                    }
+                });
+                return false;
+            });
+        }
+
+        $(document).ready(function () {
+            
+            $('#btnAdd').click(function () {
+                loadPopup1(0);
+            });
+
+            $(document).on('change', 'input[type=radio][name=optrole]', function () {
+                $('#Active').val(false);
+                $('#' + $(this).val()).val(true);
+            });
+
+            LoadTaleData();
+        });
+    </script>
+}

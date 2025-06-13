@@ -1,0 +1,58 @@
+﻿@model IntegratedAppraisalControl.Models.DTO.TblRoomsDTO
+@{
+
+}
+@using (Html.BeginForm("Add", "Rooms", FormMethod.Post, new { @class = "form-horizontal", @id = "frmRoom" }))
+{
+    <div class="panel-body">
+        <div class="row">
+
+            <div class="form-group">
+                <label class="col-lg-3 control-label">Building*:</label>
+                <div class="col-lg-3">
+                    @Html.DropDownListFor(m => m.BuildingId, new SelectList(ViewBag.listBuildings, "BuildingId", "BuildingCode"), "", new { placeholder = "Building", @class = "select2 required required2 form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-3 control-label">Room Code:</label>
+                <div class="col-lg-3">
+                    @Html.TextBoxFor(m => m.RoomCode, new { @class = "form-control required required2", @maxlength = "5", @placeholder = "Room Code" })
+                    @Html.HiddenFor(m => m.RoomId)
+                    @Html.HiddenFor(m => m.MarkForDeletion)
+                    @Html.Hidden("IsDuplicate", false)
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-lg-3 control-label">Room Description*:</label>
+                <div class="col-lg-3">
+                    @Html.TextBoxFor(m => m.RoomDescription, new { @class = "form-control required required2", @maxlength = "50", @placeholder = "Room Description" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-footer">
+
+        <div class="modal-footer">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="button" id="btnSave" class="btn btn-primary" value="Save / Exit" />
+                @if (Model.RoomId > 0)
+                {
+                    <input type="button" id="btnSaveDup" class="btn btn-primary" value="Save / Dup" />
+                    <input type="button" id="btnUndo" class="btn btn-primary" value="Undo" data-Roomid="@Model.RoomId" />
+                    if (Convert.ToBoolean(Model.MarkForDeletion))
+                    {
+                        <input type="button" id="btnUndoDelete" class="btn btn-primary" value="Undo Delete" />
+                    }
+                    else
+                    {
+                        <input type="button" id="btnDelete" class="btn btn-primary" value="Delete" />
+                    }
+                }
+                <input type="button" id="btnExit" class="btn btn-primary" value="Exit" />
+            </div>
+        </div>
+    </div>
+}

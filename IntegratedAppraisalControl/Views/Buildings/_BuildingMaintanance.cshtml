@@ -1,0 +1,49 @@
+﻿@model IntegratedAppraisalControl.Models.DTO.TblBuildingMaintenanceDTO
+@{
+
+}
+
+<form action="@Url.Action("AddChangesMaintanance","Buildings")" id="frnChangesMaintanance">
+    <div class="form-group">
+        <label for="ddlChangeType">Change Type</label>
+        @Html.DropDownListFor(m => m.ChangeTypeId, new SelectList(ViewBag.lstChangesTypeDTO, "ChangeTypeId", "ChangeType"), "", new { placeholder = "Change Type", @class = "form-control required required2" })
+        @Html.HiddenFor(m => m.BuildingId)
+        @Html.HiddenFor(m => m.BuildingMaintenanceId)
+    </div>
+    <div class="form-group">
+        <label for="txtDescription">Description</label>
+        @Html.TextAreaFor(m => m.Description, new { @class = "form-control  required required2", @maxlength = 50, @placeholder = "Description", @rows = "10" })
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="" for="MonthAcq">Month Acquired</label>
+                @Html.TextBoxFor(m => m.MonthAcq, new { @class = "form-control input-sm  required required2", @maxlength = 2, @placeholder = "Month Acquired" })
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="" for="YearAcq">Year Acquired</label>
+                @Html.TextBoxFor(m => m.YearAcq, new { @class = "form-control input-sm  required required2", @maxlength = 4, @placeholder = "Year Acquired" })
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="">Cost</label>
+                @Html.TextBoxFor(m => m.Cost, new { @class = "form-control input-sm required required2", @maxlength = 10,@numbers=true, @placeholder = "Cost" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" id="AddChange">
+                Save
+            </button>
+            <button type="button" class="btn btn-default"
+                    data-dismiss="modal">
+                Close
+            </button>
+        </div>
+    </div>
+</form>
