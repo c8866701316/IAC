@@ -20,7 +20,6 @@ obj/
 *.userprefs
 
 # Visual Studio
-.vscode/
 .vs/
 *.csproj.user
 
@@ -96,3 +95,5 @@ logs/
 /IntegratedAppraisalControl.Data/obj/
 /IntegratedAppraisalControl.Models/obj/
 /.vs/IntegratedAppraisalControl/v17/
+config.bat
+node_modules
